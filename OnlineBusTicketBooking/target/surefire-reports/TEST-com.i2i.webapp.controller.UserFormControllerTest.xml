@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.i2i.webapp.controller.UserFormControllerTest" time="7.862" tests="9" errors="1" skipped="0" failures="2">
+  <properties>
+    <property name="jboss.i18n.generate-proxies" value="true"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
+    <property name="java.vm.version" value="25.91-b14"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/ideas2it/OnlineBusTicketBooking"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="IN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/home/ideas2it/OnlineBusTicketBooking"/>
+    <property name="java.runtime.version" value="1.8.0_91-8u91-b14-3ubuntu1~16.04.1-b14"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="classworlds.conf" value="/usr/share/maven/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="4.4.0-34-generic"/>
+    <property name="user.home" value="/home/ideas2it"/>
+    <property name="user.timezone" value="Asia/Kolkata"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="ideas2it"/>
+    <property name="java.class.path" value="/usr/share/maven/boot/plexus-classworlds-2.x.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/usr/lib/jvm/java-8-openjdk-amd64/jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean package"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_91"/>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="securerandom.source" value="file:/dev/./urandom"/>
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="/usr/share/maven"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase name="testAdd" classname="com.i2i.webapp.controller.UserFormControllerTest" time="3.99"/>
+  <testcase name="testAddWithMissingFields" classname="com.i2i.webapp.controller.UserFormControllerTest" time="0.158"/>
+  <testcase name="testAddWithoutPermission" classname="com.i2i.webapp.controller.UserFormControllerTest" time="0.763"/>
+  <testcase name="testEdit" classname="com.i2i.webapp.controller.UserFormControllerTest" time="0.807">
+    <failure message="Model attribute &apos;user&apos; does not exist" type="java.lang.AssertionError">java.lang.AssertionError: Model attribute 'user' does not exist
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
+	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:72)
+	at org.springframework.test.web.servlet.result.ModelResultMatchers$3.match(ModelResultMatchers.java:83)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:152)
+	at com.i2i.webapp.controller.UserFormControllerTest.testEdit(UserFormControllerTest.java:108)
+</failure>
+    <system-out><![CDATA[DEBUG [main] UserFormControllerTest.onSetUp(36) | SMTP Port set to: 7400
+DEBUG [main] UserFormControllerTest.testEdit(96) | testing edit...
+WARN [main] UserDaoHibernate.get(137) | Uh oh, 'class com.i2i.model.User' object with id '-1' not found...
+]]></system-out>
+  </testcase>
+  <testcase name="testSave" classname="com.i2i.webapp.controller.UserFormControllerTest" time="0.083">
+    <error message="Object of class [com.i2i.model.User] with identifier [-1]: not found" type="org.springframework.orm.ObjectRetrievalFailureException">org.springframework.orm.ObjectRetrievalFailureException: Object of class [com.i2i.model.User] with identifier [-1]: not found
+	at com.i2i.dao.hibernate.GenericDaoHibernate.get(GenericDaoHibernate.java:138)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:317)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:207)
+	at com.sun.proxy.$Proxy75.get(Unknown Source)
+	at com.i2i.service.impl.UserManagerImpl.getUser(UserManagerImpl.java:97)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:317)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:267)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:267)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:207)
+	at com.sun.proxy.$Proxy83.getUser(Unknown Source)
+	at com.i2i.webapp.controller.UserFormControllerTest.testSave(UserFormControllerTest.java:150)
+</error>
+    <system-out><![CDATA[DEBUG [main] UserFormControllerTest.onSetUp(36) | SMTP Port set to: 8004
+WARN [main] UserDaoHibernate.get(137) | Uh oh, 'class com.i2i.model.User' object with id '-1' not found...
+]]></system-out>
+  </testcase>
+  <testcase name="testEditWithoutPermission" classname="com.i2i.webapp.controller.UserFormControllerTest" time="0.661"/>
+  <testcase name="testEditProfile" classname="com.i2i.webapp.controller.UserFormControllerTest" time="0.659"/>
+  <testcase name="testCancel" classname="com.i2i.webapp.controller.UserFormControllerTest" time="0.103"/>
+  <testcase name="testRemove" classname="com.i2i.webapp.controller.UserFormControllerTest" time="0.638">
+    <failure message="Range for response status value 200 expected:&lt;REDIRECTION&gt; but was:&lt;SUCCESSFUL&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Range for response status value 200 expected:<REDIRECTION> but was:<SUCCESSFUL>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:60)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:89)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers$5.match(StatusResultMatchers.java:103)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:152)
+	at com.i2i.webapp.controller.UserFormControllerTest.testRemove(UserFormControllerTest.java:195)
+]]></failure>
+    <system-out><![CDATA[DEBUG [main] UserFormControllerTest.onSetUp(36) | SMTP Port set to: 9468
+WARN [main] UserDaoHibernate.get(137) | Uh oh, 'class com.i2i.model.User' object with id '-2' not found...
+]]></system-out>
+  </testcase>
+</testsuite>

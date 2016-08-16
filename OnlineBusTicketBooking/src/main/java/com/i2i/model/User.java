@@ -7,6 +7,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -17,6 +18,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
@@ -84,6 +86,34 @@ public class User extends BaseObject implements Serializable, UserDetails {
     public User(final String username) {
         this.username = username;
     }
+    
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+	@JoinColumn (name = "User_Id")
+	private Set<Reservation> reservations = new HashSet<Reservation>();
+	
+	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+	@JoinColumn (name = "Created_By")
+	private Set<Bus> buses = new HashSet<Bus>();
+	
+	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+	@JoinColumn (name = "Created_By")
+	private Set<City> cities = new HashSet<City>();
+	
+	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+	@JoinColumn (name = "Created_By")
+	private Set<Trip> trips = new HashSet<Trip>();
+	
+	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+	@JoinColumn (name = "Created_By")
+	private Set<TripRoute> tripRoutes = new HashSet<TripRoute>();
+	
+	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+	@JoinColumn (name = "Created_By")
+	private Set<Route> routes = new HashSet<Route>();
+	
+	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+	@JoinColumn (name = "Created_By")
+	private Set<Travels> travels = new HashSet<Travels>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -334,7 +364,63 @@ public class User extends BaseObject implements Serializable, UserDetails {
         this.credentialsExpired = credentialsExpired;
     }
 
-    /**
+    public Set<Reservation> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(Set<Reservation> reservations) {
+		this.reservations = reservations;
+	}
+
+	public Set<Bus> getBuses() {
+		return buses;
+	}
+
+	public void setBuses(Set<Bus> buses) {
+		this.buses = buses;
+	}
+
+	public Set<City> getCities() {
+		return cities;
+	}
+
+	public void setCities(Set<City> cities) {
+		this.cities = cities;
+	}
+
+	public Set<Trip> getTrips() {
+		return trips;
+	}
+
+	public void setTrips(Set<Trip> trips) {
+		this.trips = trips;
+	}
+
+	public Set<TripRoute> getTripRoutes() {
+		return tripRoutes;
+	}
+
+	public void setTripRoutes(Set<TripRoute> tripRoutes) {
+		this.tripRoutes = tripRoutes;
+	}
+
+	public Set<Route> getRoutes() {
+		return routes;
+	}
+
+	public void setRoutes(Set<Route> routes) {
+		this.routes = routes;
+	}
+
+	public Set<Travels> getTravels() {
+		return travels;
+	}
+
+	public void setTravels(Set<Travels> travels) {
+		this.travels = travels;
+	}
+
+	/**
      * {@inheritDoc}
      */
     public boolean equals(Object o) {

@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: com.i2i.dao.GenericDaoTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 14.576 sec <<< FAILURE! - in com.i2i.dao.GenericDaoTest
+getUser(com.i2i.dao.GenericDaoTest)  Time elapsed: 0.595 sec  <<< ERROR!
+org.springframework.orm.ObjectRetrievalFailureException: Object of class [com.i2i.model.User] with identifier [-1]: not found
+	at com.i2i.dao.hibernate.GenericDaoHibernate.get(GenericDaoHibernate.java:138)
+	at com.i2i.dao.GenericDaoTest.getUser(GenericDaoTest.java:27)
+
