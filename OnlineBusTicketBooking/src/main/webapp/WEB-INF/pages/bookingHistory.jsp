@@ -21,7 +21,7 @@
     </head>
 <style>
  .body{
-      background-color : white;
+      background-color : #FFE4C4;
  }
   .carousel-inner img {
       width: 100%; /* Set width to 100% */
@@ -39,7 +39,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<body id="page-top" >
+<body id="page-top" style = "background-color : #FFE4C4;">
 
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -75,11 +75,11 @@
         </div>
         <!-- /.container-fluid -->
     </nav>     
-    <div  id = "main" class = "body" style="border-top-width: 125px;background-color : 	#FFE4C4;padding-top: 30px;">
+    <div  id = "main" class = "body" style="border-top-width: 125px;background-color : 	#FFE4C4;padding-top: 30px; width : 100%;">
         <form action = "bookingHistory.html" method = "post">
          <center><h3 style = "color : black;">!!! My Booking History !!!</h3></center><br>
          <c:if test="${!empty reservations}">           	
-             <table class = "table table-striped" align = "left" style = "font-size:20px; font-family:Comic Sans MS; width:75%;">
+             <table class = "table table-striped" align = "left" style = "font-size:20px; font-family:Comic Sans MS; width:100%;">
              <tr>   <td>S.No.</td>
                     <td>Travels</td> <td>Bus Number</td> <td>Bus Type</td> <td>AC/Non-AC</td> 
              	    <td>Source </td> <td>Destination </td> <td>Date Of Travel </td>
@@ -111,11 +111,11 @@
           </c:if>
           
           </table>
-<!-- Display No bus if no Triproute bus Available -->
+<!-- Display No reservation if no booking has been done -->
 <c:if test="${empty reservations}">
-    <div style="border-top-width: 200px; border-top-style: solid;">
-    <h1 style="color:black">Sorry!!! U have not Booked a Single trip yet :-(</h1>
-    </div>
+    <br><br><br><br>
+    <center><h1 style="color:black">Sorry!!! U have not Booked a Single trip yet :-(</h1></center>
+    <br><br><br><br><br><br><br><br>
 </c:if>
              
 </body>
