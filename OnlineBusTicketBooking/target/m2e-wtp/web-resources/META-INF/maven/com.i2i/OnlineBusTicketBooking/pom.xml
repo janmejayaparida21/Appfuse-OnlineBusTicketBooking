@@ -70,11 +70,7 @@
         <dao.framework>hibernate</dao.framework>
         <db.name>OnlineTicketBooking</db.name>
         <web.framework>spring</web.framework>
-<<<<<<< HEAD
-        <jdbc.password>ubuntu</jdbc.password>
-=======
         <jdbc.password>admin</jdbc.password>
->>>>>>> Added bookingHistory.jsp page and modified UserController.java
         <!-- Framework/Plugin versions -->
         <appfuse.version>3.5.0</appfuse.version>
         <java.version>1.7</java.version>

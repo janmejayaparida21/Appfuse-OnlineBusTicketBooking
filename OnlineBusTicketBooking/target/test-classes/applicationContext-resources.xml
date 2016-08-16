@@ -17,11 +17,7 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost/OnlineTicketBooking?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true"/>
         <property name="username" value="root"/>
-<<<<<<< HEAD
-        <property name="password" value="ubuntu"/>
-=======
         <property name="password" value="admin"/>
->>>>>>> Added bookingHistory.jsp page and modified UserController.java
     </bean>
 
 </beans>

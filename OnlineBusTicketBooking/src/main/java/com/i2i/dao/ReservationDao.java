@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.i2i.exception.DatabaseException;
 import com.i2i.model.Reservation;
+import com.i2i.model.User;
 
 /**
  * <p>Dao which permits all tasks related to Reservation.
@@ -31,12 +32,12 @@ public interface ReservationDao extends GenericDao<Reservation, Long> {
      * retrieve Reservation details of a particular user from the database
      * </p>
      *
-     * @param name 
-     *     user name whose reservation details has to be retrieved
+     * @param id 
+     *     Id of user whose reservation details has to be retrieved
      *     
      * @throws DatabaseException 
      *     If there is any interruption occurred in the database.
      */
-	public List<Reservation> retrieveReservationsByUserName (String name)throws DatabaseException;
+	public List<Reservation> retrieveReservationsByUser(User user)throws DatabaseException;
 	
 }

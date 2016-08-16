@@ -46,14 +46,14 @@ public interface ReservationService {
 	/**
      * <p>Retrieves User Reservation history from the Database.
 	 * </p>
-     * @param name
-     *     Name of the User for whome to search Reservation history.
+     * @param  id 
+     *     Id of user whose reservation details has to be retrieved
      * 
      * @return List<Reservation>
      *     List<Reservation> made by User.
      * @throws DatabaseException 
      *     If there is any interruption occurred in the database.
 	 */
-	public List<Reservation> getReservationByUserName(String name)throws DatabaseException; 
+	public List<Reservation> getReservationByUser(User user)throws DatabaseException; 
 	
 }

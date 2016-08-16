@@ -210,14 +210,20 @@ public class UserController {
      */
     @RequestMapping("/bookingHistory")
     public ModelAndView getBookingHistory(final HttpServletRequest request) {
-    	Map<String, Reservation> model = new HashMap<String, Reservation>();
-    	Set<Reservation> reservations = reservation.retrieveReservationsByUserName(request.getRemoteUser());
-    	for (Reservation reservation : reservations) {
-    	    model.put("reservations", reservation);
-    	}
-  	    modelAndView.addAllObjects(model);
-        modelAndView.setViewName("bookingHistory");
-        return modelAndView;
+    	Map<String, List<Reservation>> model = new HashMap<String, List<Reservation>>();
+    	String name = request.getRemoteUser();
+    	try {
+         	//List<Reservation> reservations = reservationService.getReservationByUser(user);
+        	//for (Reservation reservation : reservations) {
+    	        model.put("reservations", reservationService.getReservationByUser(user));
+    	   // }
+  	        modelAndView.addAllObjects(model);
+            modelAndView.setViewName("bookingHistory");
+            return modelAndView;
+    	} catch (DatabaseException e) {
+	       	  GenericService.exceptionWriter(e);
+		      return new ModelAndView("ExceptionPage");
+	    }
     }
     
     /**

@@ -21,7 +21,7 @@
     </head>
 <style>
  .body{
-      background-color : black;
+      background-color : white;
  }
   .carousel-inner img {
       width: 100%; /* Set width to 100% */
@@ -78,16 +78,18 @@
     <div  id = "main" class = "body" style="border-top-width: 125px;background-color : 	#FFE4C4;padding-top: 30px;">
         <form action = "bookingHistory.html" method = "post">
          <center><h3 style = "color : black;">!!! My Booking History !!!</h3></center><br>
-         <c:if test="${!empty tripRoutes}">           	
+         <c:if test="${!empty reservations}">           	
              <table class = "table table-striped" align = "left" style = "font-size:20px; font-family:Comic Sans MS; width:75%;">
-             <tr><td>Travels</td> <td>Bus Number</td> <td>Bus Type</td> <td>AC/Non-AC</td> 
+             <tr>   <td>S.No.</td>
+                    <td>Travels</td> <td>Bus Number</td> <td>Bus Type</td> <td>AC/Non-AC</td> 
              	    <td>Source </td> <td>Destination </td> <td>Date Of Travel </td>
              	    <td>Departure</td> <td>Arrival</td> <td>Seats Booked</td>
              	    <td>Total Price</td> <td>PaymentMode</td>
              </tr>
-             
+             <% int index = 1; %>
              <c:forEach items="${reservations}" var="reservation">
-             <tr><td>${reservation.tripRoute.trip.bus.travels.name}</td> 
+             <tr><td><%=index++%></td>
+                 <td>${reservation.tripRoute.trip.bus.travels.name}</td> 
                  <td>${reservation.tripRoute.trip.bus.registrationNumber}</td>
                  <td>${reservation.tripRoute.trip.bus.type}</td> 
                  <td><c:if test="${reservation.tripRoute.trip.bus.isAc}">
@@ -110,7 +112,7 @@
           
           </table>
 <!-- Display No bus if no Triproute bus Available -->
-<c:if test="${empty tripRoutes}">
+<c:if test="${empty reservations}">
     <div style="border-top-width: 200px; border-top-style: solid;">
     <h1 style="color:black">Sorry!!! U have not Booked a Single trip yet :-(</h1>
     </div>
