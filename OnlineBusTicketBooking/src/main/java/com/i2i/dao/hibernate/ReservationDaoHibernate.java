@@ -81,8 +81,8 @@ public class ReservationDaoHibernate extends GenericDaoHibernate<Reservation, Lo
      * retrieve Reservation details of a particular user from the database
      * </p>
      *
-     * @param id 
-     *     Id of user whose reservation details has to be retrieved
+     * @param user 
+     *     User whose reservation details has to be retrieved
      *     
      * @throws DatabaseException 
      *     If there is any interruption occurred in the database.
@@ -94,9 +94,8 @@ public class ReservationDaoHibernate extends GenericDaoHibernate<Reservation, Lo
         try{
             String hql = "FROM " + Reservation.class.getName() + " reservation WHERE reservation.user =:user ";
             Query query = session.createQuery(hql);
-            query.setParameter("user", user); System.out.println("Reservations : " + user);
+            query.setParameter("user", user);
             reservations = query.list();
-            System.out.println("Reservations : " + reservations);
             return reservations;
         } catch (HibernateException e) {
             throw new DatabaseException("Some problem occured while retrieving reservation", e);

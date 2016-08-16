@@ -52,6 +52,7 @@ public class ReservationServiceImpl extends GenericManagerImpl<Reservation, Long
      * 
      * @return reservation
      *     reservation object after successful reservation.
+     *     
      * @throws DatabaseException 
      *     If there is any interruption occurred in the database.
      */
@@ -66,15 +67,16 @@ public class ReservationServiceImpl extends GenericManagerImpl<Reservation, Long
 	/**
      * <p>Retrieves User Reservation history from the Database.
 	 * </p>
-     * @param  id 
-     *     Id of user whose reservation details has to be retrieved
+     * @param  user 
+     *     User whose reservation details has to be retrieved
      * 
      * @return List<Reservation>            
-     *     List<Reservation> made by User.
+     *     List of Reservations made by User.
+     *     
      * @throws DatabaseException 
      *     If there is any interruption occurred in the database.
 	 */
-	public List<Reservation> getReservationByUser(User user)throws DatabaseException {
+	public List<Reservation> getReservationByUser (User user)throws DatabaseException {
 		System.out.println("SERVICING : " + user);
 		return reservationDao.retrieveReservationsByUser(user);
 	}

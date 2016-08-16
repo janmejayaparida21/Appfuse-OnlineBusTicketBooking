@@ -50,7 +50,7 @@ public interface ReservationService {
      *     Id of user whose reservation details has to be retrieved
      * 
      * @return List<Reservation>
-     *     List<Reservation> made by User.
+     *     List of Reservations made by User.
      * @throws DatabaseException 
      *     If there is any interruption occurred in the database.
 	 */

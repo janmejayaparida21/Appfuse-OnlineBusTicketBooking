@@ -32,8 +32,8 @@ public interface ReservationDao extends GenericDao<Reservation, Long> {
      * retrieve Reservation details of a particular user from the database
      * </p>
      *
-     * @param id 
-     *     Id of user whose reservation details has to be retrieved
+     * @param user 
+     *     User whose reservation details has to be retrieved
      *     
      * @throws DatabaseException 
      *     If there is any interruption occurred in the database.
