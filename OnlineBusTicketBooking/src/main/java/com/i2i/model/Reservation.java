@@ -121,6 +121,4 @@ public class Reservation {
 				+ noOfSeatsBooked + ", totalPrice=" + totalPrice + ", paymentMode=" + paymentMode + ", status=" + status
 				+ "]";
 	}
-    
-	
 }

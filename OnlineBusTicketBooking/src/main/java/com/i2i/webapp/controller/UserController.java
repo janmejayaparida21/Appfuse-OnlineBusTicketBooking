@@ -257,7 +257,7 @@ public class UserController {
  	  }
  	  
  	  if(noOfSeatsBooked > tripRoute.getTrip().getSeatVacancy()) {
- 		  return new ModelAndView("ExceptionPage"); 
+ 		  return new ModelAndView("noSeatException"); 
  	  } else {
  	      if (paymentMode.equals("Net Banking")) {
  		      return new ModelAndView("PaymentFailure");
