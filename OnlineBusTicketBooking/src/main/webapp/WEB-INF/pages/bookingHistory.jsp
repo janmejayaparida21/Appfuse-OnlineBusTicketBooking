@@ -78,10 +78,10 @@
         <!-- /.container-fluid -->
     </nav>     
     <div  id = "main" class = "body" style="border-top-width: 125px;background-color : 	#FFE4C4;padding-top: 30px; width : 100%;">
-        <form action = "bookingHistory.html" method = "post">
+        <form action = "bookingHistory.html" method = "post" style="margin-left: -35px;">
          <center><h3 style = "color : black;">!!! My Booking History !!!</h3></center><br>
          <c:if test="${!empty reservations}">           	
-             <table class = "table table-striped" align = "left" style = "font-size:20px; font-family:Comic Sans MS; width:100%;">
+             <table class = "table table-striped" align = "left" style = "font-size:18px; font-family:Comic Sans MS; width:100%;">
              <tr>   <td>S.No.</td>
                     <td>Travels</td> <td>Bus Number</td> <td>Bus Type</td> <td>AC/Non-AC</td> 
              	    <td>Source </td> <td>Destination </td> <td>Date Of Travel </td>
