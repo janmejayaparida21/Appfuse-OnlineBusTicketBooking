@@ -101,8 +101,8 @@ public class User extends BaseObject implements Serializable, UserDetails {
 	@JoinColumn (name = "Created_By")
 	private Set<Travels> travels = new HashSet<Travels>();
 
-
-    /**
+	
+	/**
      * Default constructor - creates a new instance with no values set.
      */
     public User() {
@@ -116,7 +116,6 @@ public class User extends BaseObject implements Serializable, UserDetails {
     public User(final String username) {
         this.username = username;
     }
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

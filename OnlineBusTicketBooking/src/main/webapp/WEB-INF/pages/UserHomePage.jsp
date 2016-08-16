@@ -39,11 +39,13 @@
 
     <body id="page-top" >
 
-        <!-- Navigation -->
-        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header page-scroll" style="margin-bottom: -33px;">
+
+    <!-- Navigation -->
+  
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+            <div class="navbar-header page-scroll" style="margin-bottom: -33px;">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                     </button>
@@ -55,29 +57,29 @@
                         &nbsp;
                         BUS STOP</a>                    
                 </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="hidden">
-                            <a href="#page-top"></a>
-                        </li>
-                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" style = " font-size:large;" "href="#">${pageContext.request.remoteUser}
-                            <span></span></a>
-                            <ul class="dropdown-menu">
-                           <li><a href="/logout" style = " font-size:large;color:black">Logout</a></li>
-                           </ul>
-                        
-                        <li class="page-scroll">
-                            <a href="SearchBus.html">Search Bus</a>
-                        </li>
-                        
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    <li class="page-scroll">
+                      <a href="profile.html" style = "text-decoration : none; font-size:large;">${pageContext.request.remoteUser}</a>
+                    </li>
+                    <li class="page-scroll">
+                      <a href="logout.html" style = "text-decoration : none; font-size:large;">Logout</a>
+                    </li>
+                    <li class="page-scroll">
+                      <a href="SearchBus.html" style = "text-decoration : none; font-size:large;">Search bus</a>
+                    </li>
+                    
+                </ul>
             </div>
-            <!-- /.container-fluid -->
-        </nav>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
         <!-- Header -->
         <header>
             <div class="container">

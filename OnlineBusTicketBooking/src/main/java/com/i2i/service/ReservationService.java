@@ -1,5 +1,7 @@
 package com.i2i.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,5 +42,18 @@ public interface ReservationService {
      *     If there is any interruption occurred in the database.
 	 */
 	public Reservation addReservation (User user, TripRoute tripRoute, int noOfSeatsBooked, double totalPrice, String paymentMode, boolean status) throws DatabaseException;
+	
+	/**
+     * <p>Retrieves User Reservation history from the Database.
+	 * </p>
+     * @param name
+     *     Name of the User for whome to search Reservation history.
+     * 
+     * @return List<Reservation>
+     *     List<Reservation> made by User.
+     * @throws DatabaseException 
+     *     If there is any interruption occurred in the database.
+	 */
+	public List<Reservation> getReservationByUserName(String name)throws DatabaseException; 
 	
 }

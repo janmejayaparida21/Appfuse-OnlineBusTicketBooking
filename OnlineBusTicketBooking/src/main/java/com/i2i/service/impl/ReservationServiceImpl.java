@@ -1,5 +1,7 @@
 package com.i2i.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -59,6 +61,21 @@ public class ReservationServiceImpl extends GenericManagerImpl<Reservation, Long
 		tripRoute.setTrip(tripService.modifySeatVacancy(noOfSeatsBooked, tripRoute.getTrip()));
 		reservation.setTripRoute(tripRoute);
 		return reservation;
+	}
+	
+	/**
+     * <p>Retrieves User Reservation history from the Database.
+	 * </p>
+     * @param name
+     *     Name of the User for whome to search Reservation history.
+     * 
+     * @return List<Reservation>
+     *     List<Reservation> made by User.
+     * @throws DatabaseException 
+     *     If there is any interruption occurred in the database.
+	 */
+	public List<Reservation> getReservationByUserName(String name)throws DatabaseException {
+		return reservationDao.retrieveReservationByUserName(name);
 	}
 	
 }

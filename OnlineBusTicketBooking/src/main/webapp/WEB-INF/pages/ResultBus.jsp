@@ -92,16 +92,14 @@ th {
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
                         <a href="#page-top"></a>
-                    </li>
-                            <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" style = " font-size:large;" "href="#">${pageContext.request.remoteUser}
-                            <span></span></a>
-                            <ul class="dropdown-menu">
-                           <li><a href="logout.html" style = " font-size:large;color:black">Logout</a></li>
-                           </ul>
-                    
                     <li class="page-scroll">
-                      <a href="SearchBus.html" style = " font-size:large;">Back</a>
+                      <a href="profile.html" style = "text-decoration : none; font-size:large;">${pageContext.request.remoteUser}</a>
+                    </li>
+                    <li class="page-scroll">
+                      <a href="logout.html" style = "text-decoration : none; font-size:large;">Logout</a>
+                    </li>
+                    <li class="page-scroll">
+                      <a href="SearchBus.html" style = "text-decoration : none; font-size:large;">Back</a>
                     </li>
                     
                 </ul>
