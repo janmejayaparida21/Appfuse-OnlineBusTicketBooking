@@ -134,7 +134,7 @@ background:blue;
         </div>
         <!-- /.container-fluid -->
     </nav>      
-    <div  id = "main" class = "body" style="border-top-width: 125px;background-color : white;padding-top: 180px;">
+    <div  id = "main" class = "body" style="border-top-width: 125px;background-color : white;padding-top: 30px;">
           <center><h3>!!! Book Your Ticket Now !!!</h3></center>
           <c:forEach items = "${tripRoute}" var = "tripRoute">
              <form id ="booking_info" action = "payment.html"  onsubmit="return formValidation()" method = "post"><br><br><br>
@@ -177,12 +177,13 @@ background:blue;
                    </tr>
                    <input type="hidden" id="seatVacancy" name="seatVacancy" value="${tripRoute.trip.seatVacancy}"/>
                  
-                </table><br><br>
+                </table><br><br><br><br><br><br> 
                 
                 </div> 
-                     
+                    
              </form>
           </c:forEach> 
+          
           
     <script type="text/javascript">
         
