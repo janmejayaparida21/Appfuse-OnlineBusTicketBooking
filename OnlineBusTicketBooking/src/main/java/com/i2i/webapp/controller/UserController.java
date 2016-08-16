@@ -209,9 +209,9 @@ public class UserController {
      *  
      */
     @RequestMapping("/bookingHistory")
-    public ModelAndView getProfilePage() {
+    public ModelAndView getBookingHistory(final HttpServletRequest request) {
     	Map<String, Reservation> model = new HashMap<String, Reservation>();
-    	Set<Reservation> reservations = user.getReservations();
+    	Set<Reservation> reservations = reservation.retrieveReservationsByUserName(request.getRemoteUser());
     	for (Reservation reservation : reservations) {
     	    model.put("reservations", reservation);
     	}

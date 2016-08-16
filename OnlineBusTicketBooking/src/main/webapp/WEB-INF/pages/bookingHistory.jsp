@@ -77,13 +77,44 @@
     </nav>     
     <div  id = "main" class = "body" style="border-top-width: 125px;background-color : 	#FFE4C4;padding-top: 30px;">
         <form action = "bookingHistory.html" method = "post">
-         <center><h3 style = "color : black;">!!! MY PROFILE !!!</h3></center><br>           	
+         <center><h3 style = "color : black;">!!! My Booking History !!!</h3></center><br>
+         <c:if test="${!empty tripRoutes}">           	
              <table class = "table table-striped" align = "left" style = "font-size:20px; font-family:Comic Sans MS; width:75%;">
              <tr><td>Travels</td> <td>Bus Number</td> <td>Bus Type</td> <td>AC/Non-AC</td> 
              	    <td>Source </td> <td>Destination </td> <td>Date Of Travel </td>
              	    <td>Departure</td> <td>Arrival</td> <td>Seats Booked</td>
              	    <td>Total Price</td> <td>PaymentMode</td>
              </tr>
+             
+             <c:forEach items="${reservations}" var="reservation">
+             <tr><td>${reservation.tripRoute.trip.bus.travels.name}</td> 
+                 <td>${reservation.tripRoute.trip.bus.registrationNumber}</td>
+                 <td>${reservation.tripRoute.trip.bus.type}</td> 
+                 <td><c:if test="${reservation.tripRoute.trip.bus.isAc}">
+                        AC
+                     </c:if>
+                     <c:if test="${!reservation.tripRoute.trip.bus.isAc}">
+                        Non-AC
+                     </c:if></td> 
+             	 <td>${reservation.tripRoute.route.sourceCity.name}</td> 
+             	 <td>${reservation.tripRoute.route.destinationCity.name}</td> 
+             	 <td>${reservation.tripRoute.dateOfTravel}</td>
+             	 <td>${reservation.tripRoute.departureTime}</td> 
+             	 <td>${reservation.tripRoute.arrivalTime}</td> 
+             	 <td>${reservation.noOfSeatsBooked}</td>
+             	 <td>${reservation.totalPrice}</td> 
+             	 <td>${reservation.paymentMode}</td>
+             </tr>
+             </c:forEach>
+          </c:if>
+          
+          </table>
+<!-- Display No bus if no Triproute bus Available -->
+<c:if test="${empty tripRoutes}">
+    <div style="border-top-width: 200px; border-top-style: solid;">
+    <h1 style="color:black">Sorry!!! U have not Booked a Single trip yet :-(</h1>
+    </div>
+</c:if>
              
 </body>
 </html>

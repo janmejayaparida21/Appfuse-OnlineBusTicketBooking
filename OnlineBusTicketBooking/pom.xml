@@ -68,9 +68,10 @@
         <amp.genericCore>true</amp.genericCore>
         <amp.fullSource>false</amp.fullSource>
         <dao.framework>hibernate</dao.framework>
-        <db.name>OnlineBusTicketBooking</db.name>
+        <db.name>OnlineTicketBooking</db.name>
         <web.framework>spring</web.framework>
         <jdbc.password>ubuntu</jdbc.password>
+        <jdbc.password>admin</jdbc.password>
         <!-- Framework/Plugin versions -->
         <appfuse.version>3.5.0</appfuse.version>
         <java.version>1.7</java.version>

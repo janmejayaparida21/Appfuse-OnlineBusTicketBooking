@@ -31,6 +31,7 @@ import com.i2i.exception.DatabaseException;
 import com.i2i.model.Reservation;
 import com.i2i.model.Route;
 import com.i2i.model.TripRoute;
+import com.i2i.model.User;
 
 /**
  * <p>ReservationDaoHibernate which permits all tasks related to Reservation.
@@ -73,5 +74,32 @@ public class ReservationDaoHibernate extends GenericDaoHibernate<Reservation, Lo
             throw new DatabaseException("Some problem occured while inserting reservation details with id" 
                                         + reservation.getId() + " records", e);
         } 
+	}
+	
+	/**
+     * <p>
+     * retrieve Reservation details of a particular user from the database
+     * </p>
+     *
+     * @param name 
+     *     user name whose reservation details has to be retrieved
+     *     
+     * @throws DatabaseException 
+     *     If there is any interruption occurred in the database.
+     */
+	public List<Reservation> retrieveReservationsByUserName (String name) throws DatabaseException{
+		List<Reservation> reservations = null;
+        Session session = getSession();
+        try{
+            String hql = "FROM " + User.class.getName() + " user WHERE user.username =:name ";
+            Query query = session.createQuery(hql);
+            query.setParameter("name", name);
+            reservations = query.list();
+            return reservations;
+        } catch (HibernateException e) {
+            throw new DatabaseException("Some problem occured while retrieving reservation", e);
+        } finally {
+        	session.flush(); 
+        }
 	}
 }

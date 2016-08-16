@@ -367,8 +367,7 @@ public class User extends BaseObject implements Serializable, UserDetails {
         this.credentialsExpired = credentialsExpired;
     }
 
-
-    /**
+	/**
 
      * {@inheritDoc}
      */
