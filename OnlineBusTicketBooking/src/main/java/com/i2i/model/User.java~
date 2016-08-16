@@ -71,7 +71,7 @@ public class User extends BaseObject implements Serializable, UserDetails {
     private boolean accountExpired;
     private boolean accountLocked;
     private boolean credentialsExpired;
-
+<<<<<<< HEAD
     
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn (name = "User_Id")
@@ -100,7 +100,7 @@ public class User extends BaseObject implements Serializable, UserDetails {
 	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn (name = "Created_By")
 	private Set<Travels> travels = new HashSet<Travels>();
-
+=======
 
     /**
      * Default constructor - creates a new instance with no values set.
@@ -117,6 +117,22 @@ public class User extends BaseObject implements Serializable, UserDetails {
         this.username = username;
     }
 
+>>>>>>> Added User.java
+
+    /**
+     * Default constructor - creates a new instance with no values set.
+     */
+    public User() {
+    }
+
+    /**
+     * Create a new instance and set the username.
+     *
+     * @param username login name for user.
+     */
+    public User(final String username) {
+        this.username = username;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -367,9 +383,13 @@ public class User extends BaseObject implements Serializable, UserDetails {
         this.credentialsExpired = credentialsExpired;
     }
 
-
+<<<<<<< HEAD
     /**
+=======
 
+
+	/**
+>>>>>>> Added User.java
      * {@inheritDoc}
      */
     public boolean equals(Object o) {

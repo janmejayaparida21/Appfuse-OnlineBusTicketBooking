@@ -1,9 +1,15 @@
 Manifest-Version: 1.0
+Implementation-Vendor: Pivotal Software, Inc.
 Implementation-Title: AppFuse Spring MVC Application
 Implementation-Version: 1.0-SNAPSHOT
+<<<<<<< HEAD
 Built-By: ideas2it
 Implementation-Vendor-Id: com.i2i
 Build-Jdk: 1.8.0_91
+=======
+Implementation-Vendor-Id: com.i2i
+Build-Jdk: 1.7.0_101
+Built-By: Ideas2IT-sathishkumar
+>>>>>>> Added User.java
 Created-By: Maven Integration for Eclipse
-Implementation-Vendor: Pivotal Software, Inc.
 
