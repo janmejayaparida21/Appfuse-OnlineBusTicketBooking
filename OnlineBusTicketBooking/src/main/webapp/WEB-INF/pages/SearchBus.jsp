@@ -16,15 +16,9 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css"> 
      <!-- Load jQuery from Google's CDN -->
-    <!-- Load jQuery UI CSS  -->
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-   
-    <!-- Load jQuery JS -->
-    <script src="styles/js/jquery-1.9.1.js"></script>
-    <!-- Load jQuery UI Main JS  -->
-    <script src="styles/js/jquery-ui.js"></script>
-   
-    <!-- Load SCRIPT.JS which will create datepicker for input field  -->
+    
+    
+    <link rel="stylesheet" type="text/css" media="all" href="/webjars/bootstrap-datepicker/1.3.1/css/datepicker.css" />
     
 
 </head>
@@ -70,11 +64,11 @@
                             <a class="dropdown-toggle" data-toggle="dropdown" style = " font-size:large;" "href="#">${pageContext.request.remoteUser}
                             <span></span></a>
                             <ul class="dropdown-menu">
-                               <li><a href="logout.html" style = " font-size:large;color:black">Logout</a></li>
-                            </ul>
+                           <li><a href="logout.html" style = " font-size:large;color:black">Logout</a></li>
+                           </ul>
                     
                     <li class="page-scroll">
-                      <a href="UserHomePage.html" style = "text-decoration : none; font-size:large;">Back</a>
+                      <a href="home.html" style = "text-decoration : none; font-size:large;"  >Back</a>
                     </li>
                     
                 </ul>
@@ -125,23 +119,17 @@ Online Bus Ticket Booking With Zero Booking Fee!!!!</h2>
     <tr><td>
      <p style="color : white">Pick a Date</p></td></tr>
      <tr><td>
-     <input name="date" id="date"  onchange="dateofTavel()" style="left:2Px;color:black" type="text"  /></p>
+     <input name="date" id="date"  onchange="dateofTavel()" style="left:2Px;color:black" type="date"  /></p>
      </td>
      <td style = "padding : 10px" > <button style="left:2Px;top:380px;" type="submit" class="btn btn-danger" >Select My Trip</button> </td>
      </tr></table>
      
-     <script>
-  $(document).ready(
-  
-  /* This is the function that will get executed after the DOM is fully loaded */
-  function () {
-    $( "#date" ).datepicker({
-      changeMonth: true,//this option for allowing user to select month
-      changeYear: true, //this option for allowing user to select from year range
-      dateFormat: 'yy-mm-dd'
+  <script type="text/javascript" src="/webjars/bootstrap-datepicker/1.3.1/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.date').datepicker({format: "mm/dd/yyyy", weekStart: "0"});
     });
-  }
-);
+
   function formValidation() {
       var source = document.searchBus.source.value;
       var destination = document.searchBus.destination.value;
@@ -163,9 +151,10 @@ Online Bus Ticket Booking With Zero Booking Fee!!!!</h2>
     	  return false;
 	  } 
       else {
-    	  var dateOfTravel =  $('#date').datepicker('getDate');
+    	 // var dateOfTravel =  $('#date').datepicker('getDate');
     	  var now = new Date();
-    	  if(dateOfTravel < now){
+    	  var travelDate = new Date(dateOfTravel);
+    	  if(travelDate < now){
     		  alert("Please Select Correct Date");
         	  return false;
     	  }

@@ -71,21 +71,6 @@ public class User extends BaseObject implements Serializable, UserDetails {
     private boolean accountExpired;
     private boolean accountLocked;
     private boolean credentialsExpired;
-
-    /**
-     * Default constructor - creates a new instance with no values set.
-     */
-    public User() {
-    }
-
-    /**
-     * Create a new instance and set the username.
-     *
-     * @param username login name for user.
-     */
-    public User(final String username) {
-        this.username = username;
-    }
     
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn (name = "User_Id")
@@ -114,6 +99,21 @@ public class User extends BaseObject implements Serializable, UserDetails {
 	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn (name = "Created_By")
 	private Set<Travels> travels = new HashSet<Travels>();
+
+    /**
+     * Default constructor - creates a new instance with no values set.
+     */
+    public User() {
+    }
+
+    /**
+     * Create a new instance and set the username.
+     *
+     * @param username login name for user.
+     */
+    public User(final String username) {
+        this.username = username;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -364,63 +364,7 @@ public class User extends BaseObject implements Serializable, UserDetails {
         this.credentialsExpired = credentialsExpired;
     }
 
-    public Set<Reservation> getReservations() {
-		return reservations;
-	}
-
-	public void setReservations(Set<Reservation> reservations) {
-		this.reservations = reservations;
-	}
-
-	public Set<Bus> getBuses() {
-		return buses;
-	}
-
-	public void setBuses(Set<Bus> buses) {
-		this.buses = buses;
-	}
-
-	public Set<City> getCities() {
-		return cities;
-	}
-
-	public void setCities(Set<City> cities) {
-		this.cities = cities;
-	}
-
-	public Set<Trip> getTrips() {
-		return trips;
-	}
-
-	public void setTrips(Set<Trip> trips) {
-		this.trips = trips;
-	}
-
-	public Set<TripRoute> getTripRoutes() {
-		return tripRoutes;
-	}
-
-	public void setTripRoutes(Set<TripRoute> tripRoutes) {
-		this.tripRoutes = tripRoutes;
-	}
-
-	public Set<Route> getRoutes() {
-		return routes;
-	}
-
-	public void setRoutes(Set<Route> routes) {
-		this.routes = routes;
-	}
-
-	public Set<Travels> getTravels() {
-		return travels;
-	}
-
-	public void setTravels(Set<Travels> travels) {
-		this.travels = travels;
-	}
-
-	/**
+    /**
      * {@inheritDoc}
      */
     public boolean equals(Object o) {
