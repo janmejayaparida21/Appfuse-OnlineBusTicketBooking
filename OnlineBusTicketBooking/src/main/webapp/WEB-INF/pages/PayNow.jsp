@@ -118,7 +118,7 @@ background:blue;
                     <li class="hidden">
                         <a href="#page-top"></a>
                     <li class="page-scroll">
-                      <a href="profile.html" style = "text-decoration : none; font-size:large;">Hi!! ${pageContext.request.remoteUser}</a>
+                      <a href="profile.html" style = "text-decoration : none; font-size:large;">${pageContext.request.remoteUser}</a>
                     </li>
                     <li class="page-scroll">
                       <a href="logout.html" style = "text-decoration : none; font-size:large;">Logout</a>

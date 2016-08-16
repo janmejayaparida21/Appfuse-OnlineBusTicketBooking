@@ -58,17 +58,19 @@
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="hidden">
-                            <a href="#page-top"></a>
-                        </li>
-                        <li class="page-scroll">
-                            <a href="loginPage.html" style = " font-size:large;">Login</a>
-                        </li>
-                        <li class="page-scroll">
-                            <a href="registerPage.html" style = " font-size:large;">SignUp</a>
-                        </li>
-                    </ul>
+                     <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    <li class="page-scroll">
+                      <a href="profile.html" style = "text-decoration : none; font-size:large;">${pageContext.request.remoteUser}</a>
+                    </li>
+                    <li class="page-scroll">
+                      <a href="logout.html" style = "text-decoration : none; font-size:large;">Logout</a>
+                    </li>
+                    <li class="page-scroll">
+                      <a href="SearchBus.html" style = "text-decoration : none; font-size:large;">Search bus</a>
+                    </li>
+                </ul>
                 </div>
                 <!-- /.navbar-collapse -->
             </div>

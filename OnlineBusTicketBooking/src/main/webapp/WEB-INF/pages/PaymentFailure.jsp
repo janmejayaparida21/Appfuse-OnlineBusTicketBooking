@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
@@ -65,19 +66,18 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <form>
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="hidden">
-                                <a href="#page-top"></a>
-                            </li>
-                           <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" style = " font-size:large;" "href="#">Hi!! ${pageContext.request.remoteUser}
-                            <span></span></a>
-                            <ul class="dropdown-menu">
-                           <li><a href="logOut.html" style = " font-size:large;color:black">Logout</a></li>
-                           </ul>
-                            <li class="page-scroll">
-                                <a href="SearchBus.html" style = " font-size:large;">Search Bus</a>
-                            </li>
-                        </ul>
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    <li class="page-scroll">
+                      <a href="profile.html" style = "text-decoration : none; font-size:large;">${pageContext.request.remoteUser}</a>
+                    </li>
+                    <li class="page-scroll">
+                      <a href="logout.html" style = "text-decoration : none; font-size:large;">Logout</a>
+                    </li>
+                    <li class="page-scroll">
+                      <a href="SearchBus.html" style = "text-decoration : none; font-size:large;">SearchBus</a>
+                    </li>
+                </ul>
                     </form>
                 </div>
                 <!-- /.navbar-collapse -->
