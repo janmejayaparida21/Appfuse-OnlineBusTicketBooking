@@ -29,13 +29,13 @@ public class TripServiceImpl extends GenericManagerImpl<Trip, Long> implements T
      * Updates a Trip object in the record.
      *
      * @param noOfSeatsBooked 
-     *    noOfSeatsBooked booked by the updated.
+     *    noOfSeatsBooked booked by the user.
      *
      * @return Trip
-     *     Trip object after modifying number of seat vacancies
+     *     Trip object after modifying number of seat vacancies.
      *     
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database.
+     *     If there is any interruption while updating record in the database.
      */
     public Trip modifySeatVacancy (int noOfSeatsBooked, Trip trip) throws DatabaseException {
     	int seatCount = trip.getSeatVacancy();

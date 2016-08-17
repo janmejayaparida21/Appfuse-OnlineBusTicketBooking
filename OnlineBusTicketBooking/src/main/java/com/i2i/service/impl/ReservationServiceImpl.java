@@ -54,7 +54,7 @@ public class ReservationServiceImpl extends GenericManagerImpl<Reservation, Long
      *     reservation object after successful reservation.
      *     
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database.
+     *     If there is any interruption while inserting record in the database.
      */
 	public Reservation addReservation (User user, TripRoute tripRoute, int noOfSeatsBooked, double totalPrice, String paymentMode, boolean status) throws DatabaseException {
 		Reservation reservation = new Reservation(user, tripRoute, noOfSeatsBooked, totalPrice, paymentMode, status);
@@ -74,7 +74,7 @@ public class ReservationServiceImpl extends GenericManagerImpl<Reservation, Long
      *     List of Reservations made by User.
      *     
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database.
+     *     If there is any interruption while retrieving records from the database.
 	 */
 	public List<Reservation> getReservationByUser (User user)throws DatabaseException {
 		System.out.println("SERVICING : " + user);

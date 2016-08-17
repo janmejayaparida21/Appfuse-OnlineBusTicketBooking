@@ -43,7 +43,7 @@ public class TripRouteServiceImpl extends GenericManagerImpl<TripRoute, Long> im
      *     date of travel for Trip.  
      *     
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database.
+     *     If there is any interruption while retrieving records from the database.
 	 */
     public List<TripRoute> getTripRoutes (Route route, Date dateOfTravel) throws DatabaseException {
     	return tripRouteDao.retrieveTripRoutes(route, dateOfTravel);
@@ -59,7 +59,7 @@ public class TripRouteServiceImpl extends GenericManagerImpl<TripRoute, Long> im
      *    TripRoute object which matches the given id
      *
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database.
+     *     If there is any interruption while retrieving record from the database.
      */
     public TripRoute getTripRouteById (int id) throws DatabaseException {
         return tripRouteDao.retrieveTripRouteById(id);

@@ -25,7 +25,7 @@ public interface TripRouteService extends GenericManager<TripRoute, Long> {
      *     date of travel for Trip.  
      *     
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database.
+     *     If there is any interruption while retrieving records from the database.
 	 */
 	List<TripRoute> getTripRoutes (Route route, Date dateOfTravel) throws DatabaseException;
 	
@@ -39,7 +39,7 @@ public interface TripRouteService extends GenericManager<TripRoute, Long> {
      *    TripRoute object which matches the given id
      *
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database.
+     *     If there is any interruption while retrieving record from the database.
      */
     TripRoute getTripRouteById (int id) throws DatabaseException;
 	

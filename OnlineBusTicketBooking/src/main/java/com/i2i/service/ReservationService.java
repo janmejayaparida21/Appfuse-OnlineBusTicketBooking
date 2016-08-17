@@ -38,8 +38,9 @@ public interface ReservationService {
      * 
      * @return reservation
      *     reservation object after successful reservation.
+     *     
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database.
+     *     If there is any interruption while inserting record in the database.
 	 */
 	public Reservation addReservation (User user, TripRoute tripRoute, int noOfSeatsBooked, double totalPrice, String paymentMode, boolean status) throws DatabaseException;
 	
@@ -52,7 +53,7 @@ public interface ReservationService {
      * @return List<Reservation>
      *     List of Reservations made by User.
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database.
+     *     If there is any interruption while retrieving records from the database.
 	 */
 	public List<Reservation> getReservationByUser(User user)throws DatabaseException; 
 	

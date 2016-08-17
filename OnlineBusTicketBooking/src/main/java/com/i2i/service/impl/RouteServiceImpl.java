@@ -38,7 +38,7 @@ public class RouteServiceImpl extends GenericManagerImpl<Route, Long> implements
      *     Destination city of the route which is to be retrieved. 
      *     
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database.
+     *     If there is any interruption while retrieving records from the database.
 	 */
 	public List<Route> getRoute (String sourceCityName, String destinationCityName) throws DatabaseException {
 		return routeDao.retrieveRoute(sourceCityName, destinationCityName);
