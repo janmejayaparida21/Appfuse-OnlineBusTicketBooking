@@ -46,7 +46,7 @@ public class GenericService {
              printWriter = new PrintWriter(bufferedWriter, true);
              e.printStackTrace(printWriter);
         } catch (Exception ex) {
-             ex.printStackTrace();
+            ex.printStackTrace();
         } finally {
             try {
                 bufferedWriter.close();

@@ -1,12 +1,13 @@
 package com.i2i.dao;
 
-import com.i2i.model.User;
+import java.util.List;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import com.i2i.model.User;
 
 /**
  * User Data Access Object (GenericDao) interface.

@@ -11,17 +11,17 @@ import com.i2i.model.Trip;
 public interface TripDao extends GenericDao<Trip, Long> {
 	
 	/**
-     * Updates a Trip object in the record.
-     *
-     * @param trip 
-     *    Trip object which is to be updated
-     *
-     * @return Trip
-     *     Trip object after update
-     *     
-     * @throws DatabaseException 
-     *     If there is any interruption while updating record in the database.
-     */
+	 * Updates a Trip object in the record.
+	 * 
+	 * @param trip
+	 *     Trip object which is to be updated
+	 *     
+	 * @return Trip
+	 *     Trip object after update
+	 *
+	 * @throws DatabaseException
+	 *     If there is any interruption while updating record in the database.
+	 */
 	public Trip updateTrip(Trip trip) throws DatabaseException;
 }	
 	

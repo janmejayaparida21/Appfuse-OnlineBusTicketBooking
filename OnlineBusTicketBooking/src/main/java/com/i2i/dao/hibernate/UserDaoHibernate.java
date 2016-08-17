@@ -1,7 +1,8 @@
 package com.i2i.dao.hibernate;
 
-import com.i2i.dao.UserDao;
-import com.i2i.model.User;
+import java.util.List;
+import javax.persistence.Table;
+
 import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.core.annotation.AnnotationUtils;
@@ -12,8 +13,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.Table;
-import java.util.List;
+import com.i2i.dao.UserDao;
+import com.i2i.model.User;
 
 /**
  * This class interacts with Hibernate session to save/delete and
