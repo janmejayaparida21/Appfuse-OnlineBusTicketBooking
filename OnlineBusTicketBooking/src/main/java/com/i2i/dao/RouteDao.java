@@ -13,19 +13,19 @@ import com.i2i.model.Route;
 public interface RouteDao extends GenericDao<Route, Long> {
 	
 	/**
-     * <p>
-     * Retrieves a specific Route record from the database.
-     * </p>
-     *
-     * @param sourceCityName 
-     *     Source city of the route which is to be retrieved. 
-     * 
-     * @param destinationCityName 
-     *     Destination city of the route which is to be retrieved. 
-     *     
-     * @throws DatabaseException 
-     *     If there is any interruption while retrieving records from the database.
-     */
+	 * <p>
+	 * Retrieves a specific Route record from the database.
+	 * </p>
+	 *
+	 * @param sourceCityName 
+	 *     Source city of the route which is to be retrieved. 
+	 * 
+	 * @param destinationCityName 
+	 *     Destination city of the route which is to be retrieved. 
+	 *     
+	 * @throws DatabaseException 
+	 *     If there is any interruption while retrieving records from the database.
+	 */
 	List<Route> retrieveRoute (String sourceCityName, String destinationCityName) throws DatabaseException;
 }
 
