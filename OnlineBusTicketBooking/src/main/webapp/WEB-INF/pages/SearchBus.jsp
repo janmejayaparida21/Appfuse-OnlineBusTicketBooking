@@ -119,7 +119,7 @@ Online Bus Ticket Booking With Zero Booking Fee!!!!</h2>
      <tr><td>
      <input name="date" id="date"  onchange="dateofTavel()" style="left:2Px;color:black" type="date"  /></p>
      </td>
-     <td style = "padding : 10px" > <button style="left:2Px;top:380px;" type="submit" class="btn btn-danger" >Select My Trip</button> </td>
+     <td style = "padding : 10px" > <button style="left:2Px;top:380px;" type="submit" class="btn btn-danger" >Search Available buses</button> </td>
      </tr></table>
      
   <script type="text/javascript" src="/webjars/bootstrap-datepicker/1.3.1/js/bootstrap-datepicker.js"></script>

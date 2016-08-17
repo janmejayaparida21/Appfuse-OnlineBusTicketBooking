@@ -162,25 +162,25 @@ public class UserController {
      *     Returns ModelAndView object which is rendered with the View 'PayNow'
      *     Returns ModelAndView object which is rendered with the View 'ExceptionPage' when exception occurred
      */
-    @RequestMapping(value = "/ConfirmBooking",method = RequestMethod.POST)
-    public ModelAndView getBookingForm(@RequestParam("tripRoutes")int tripRouteId) {
-    	Map<String, Object> model = new HashMap<String, Object>();
-    	List<TripRoute> tripRoutes = new ArrayList<TripRoute>();
-        try {
-        	tripRoutes.add(tripRouteService.getTripRouteById(tripRouteId));
-        	model.put("tripRoute", tripRoutes );
-        	for (TripRoute tripRoute : tripRoutes) {
-        		this.tripRoute = tripRoute;
-            }
-            modelAndView.addAllObjects(model);
-            modelAndView.setViewName("PayNow");
-            return modelAndView;
-        } catch (DatabaseException e) {
-        	GenericService.exceptionWriter(e);
-        	return new ModelAndView("ExceptionPage");          
-        }
-    }
-    
+	@RequestMapping(value = "/ConfirmBooking",method = RequestMethod.POST)
+	public ModelAndView getBookingForm(@RequestParam("tripRoutes")int tripRouteId) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		List<TripRoute> tripRoutes = new ArrayList<TripRoute>();
+		try {
+			tripRoutes.add(tripRouteService.getTripRouteById(tripRouteId));
+			model.put("tripRoute", tripRoutes );
+			for (TripRoute tripRoute : tripRoutes) {
+				this.tripRoute = tripRoute;
+			}
+			modelAndView.addAllObjects(model);
+			modelAndView.setViewName("PayNow");
+			return modelAndView;
+		} catch (DatabaseException e) {
+			GenericService.exceptionWriter(e);
+			return new ModelAndView("ExceptionPage");          
+	    }
+	}
+
     /**
      * <p>Returns the User Profile page to the user</p>
      *
@@ -206,20 +206,20 @@ public class UserController {
      *     Returns ModelAndView object which is rendered with the View 'bookingHistory'
      *  
      */
-    @RequestMapping("/bookingHistory")
-    public ModelAndView getBookingHistory(final HttpServletRequest request) {
-    	Map<String, List<Reservation>> model = new HashMap<String, List<Reservation>>();
-    	try {
-    		model.put("reservations", reservationService.getReservationByUser(user));
-    		modelAndView.addAllObjects(model);
-    		modelAndView.setViewName("bookingHistory");
-    		return modelAndView;
-    	} catch (DatabaseException e) {
-    		GenericService.exceptionWriter(e);
-    		return new ModelAndView("ExceptionPage");
+	@RequestMapping("/bookingHistory")
+	public ModelAndView getBookingHistory(final HttpServletRequest request) {
+		Map<String, List<Reservation>> model = new HashMap<String, List<Reservation>>();
+		try {
+			model.put("reservations", reservationService.getReservationByUser(user));
+			modelAndView.addAllObjects(model);
+			modelAndView.setViewName("bookingHistory");
+			return modelAndView;
+		} catch (DatabaseException e) {
+			GenericService.exceptionWriter(e);
+			return new ModelAndView("ExceptionPage");
 	    }
-    }
-    
+	}
+
     /**
      * <p>Once payment is done the booked ticket is show to the user</p>
      *
@@ -237,9 +237,9 @@ public class UserController {
      */
 	@RequestMapping(value = "/payment")
 	public ModelAndView getPaymentPage(@RequestParam("noOfSeatsBooked")int noOfSeatsBooked, 
-										@RequestParam("totalPrice") double totalPrice, 
-										@RequestParam("paymentMode") String paymentMode,
-										final HttpServletRequest request) {
+	                                   @RequestParam("totalPrice") double totalPrice, 
+	                                   @RequestParam("paymentMode") String paymentMode,
+									   final HttpServletRequest request) {
 	
 		String current_user = request.getRemoteUser();
 		boolean status = false;
@@ -250,7 +250,6 @@ public class UserController {
 			return new ModelAndView("ExceptionPage");
 		}
 		int seatsAvailable = tripRoute.getTrip().getSeatVacancy();
-	
 		if(!(InputValidationUtil.checkIfNoOfSeatsBookedIsValid(noOfSeatsBooked, seatsAvailable))) {
 			return new ModelAndView("noSeatException"); 
 		} else {
