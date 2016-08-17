@@ -79,8 +79,8 @@ public class ReservationDaoHibernate extends GenericDaoHibernate<Reservation, Lo
 			return reservations;
 		} catch (HibernateException e) {
 			throw new DatabaseException("Some problem occured while retrieving reservation", e);
-	    } finally {
-	    	session.flush(); 
+		} finally {
+			session.flush(); 
 	    }
 	}
 }
