@@ -21,10 +21,17 @@
     </bean>
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+<<<<<<< 2344777439166711c8f5326067de5821c6bee5e7:OnlineBusTicketBooking/src/main/resources/applicationContext-resources.xml
         <property name="driverClassName" value="${jdbc.driverClassName}"/>
         <property name="url" value="${jdbc.url}"/>
         <property name="username" value="${jdbc.username}"/>
         <property name="password" value="${jdbc.password}"/>
+=======
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost/OnlineBusTicketBooking?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+>>>>>>> INFO:Performed Server side validation for SearchBus.jsp page.:OnlineBusTicketBooking/target/classes/applicationContext-resources.xml
         <property name="maxActive" value="100"/>
         <property name="maxWait" value="1000"/>
         <property name="poolPreparedStatements" value="true"/>

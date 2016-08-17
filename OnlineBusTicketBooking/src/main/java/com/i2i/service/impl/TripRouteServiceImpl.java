@@ -8,9 +8,12 @@ import org.springframework.stereotype.Service;
 
 import com.i2i.dao.TripRouteDao;
 import com.i2i.exception.DatabaseException;
+import com.i2i.exception.InputException;
 import com.i2i.model.Route;
 import com.i2i.model.TripRoute;
 import com.i2i.service.TripRouteService;
+import com.i2i.util.InputValidationUtil;
+
 
 /**
  * <p>Implementation of TripRouteService</p>
@@ -40,8 +43,12 @@ public class TripRouteServiceImpl extends GenericManagerImpl<TripRoute, Long> im
      * @throws DatabaseException 
      *     If there is any interruption while retrieving records from the database.
      */
-    public List<TripRoute> getTripRoutes (Route route, Date dateOfTravel) throws DatabaseException {
-    	return tripRouteDao.retrieveTripRoutes(route, dateOfTravel);
+    public List<TripRoute> getTripRoutes (Route route, Date dateOfTravel) throws DatabaseException, InputException{
+    	if(InputValidationUtil.checkIfDateValid(dateOfTravel)) {
+    		return tripRouteDao.retrieveTripRoutes(route, dateOfTravel);
+    	} else {
+    		throw new InputException("Please enter valid Travel Date");
+    	}
     }
     
     /**

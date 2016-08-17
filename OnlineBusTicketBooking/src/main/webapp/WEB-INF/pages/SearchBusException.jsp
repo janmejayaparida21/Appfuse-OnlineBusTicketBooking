@@ -37,6 +37,11 @@
 </style>
 
 <body id="page-top" class="bodyColor">
+    <script type="text/javascript">
+            window.onload = function() {
+        	    alert("${exception}");
+        	}
+      	</script>
 
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -149,6 +154,7 @@ Online Bus Ticket Booking With Zero Booking Fee!!!!</h2>
     	  return false;
 	  } 
       else {
+    	 // var dateOfTravel =  $('#date').datepicker('getDate');
     	  var now = new Date();
     	  var travelDate = new Date(dateOfTravel);
     	  if(travelDate < now){

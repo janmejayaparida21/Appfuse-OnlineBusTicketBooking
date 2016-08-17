@@ -3,6 +3,7 @@ package com.i2i.service;
 import java.util.List;
 
 import com.i2i.exception.DatabaseException;
+import com.i2i.exception.InputException;
 import com.i2i.model.Route;
 
 /**
@@ -25,7 +26,7 @@ public interface RouteService extends GenericManager<Route, Long> {
      * @throws DatabaseException 
      *     If there is any interruption while retrieving records from the database.
 	 */
-    List<Route> getRoute(String source, String destination) throws DatabaseException;
+    List<Route> getRoute(String source, String destination) throws DatabaseException, InputException;
 }
 
 

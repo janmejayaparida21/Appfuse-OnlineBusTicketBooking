@@ -1,3 +1,4 @@
+
 package com.i2i.service.impl;
 
 import java.util.List;
@@ -7,8 +8,11 @@ import org.springframework.stereotype.Service;
 
 import com.i2i.dao.RouteDao;
 import com.i2i.exception.DatabaseException;
+import com.i2i.exception.InputException;
 import com.i2i.model.Route;
 import com.i2i.service.RouteService;
+import com.i2i.util.InputValidationUtil;
+
 
 /**
  * Implementation of RouteService interface.
@@ -17,6 +21,7 @@ import com.i2i.service.RouteService;
  */
 @Service("routeService")
 public class RouteServiceImpl extends GenericManagerImpl<Route, Long> implements RouteService {
+
     RouteDao routeDao;
 
     @Autowired
@@ -25,10 +30,10 @@ public class RouteServiceImpl extends GenericManagerImpl<Route, Long> implements
         this.routeDao = routeDao;
     }
 	
-    /**
-     * <p>Retrieves a specific Route record for given Source city and Destination city.
-     * </p>
-     * @param sourceCityName 
+	/**
+	 * <p>Retrieves a specific Route record for given Source city and Destination city.
+	 * </p>
+	 * @param sourceCityName 
      *     Source city of the route which is to be retrieved. 
      * 
      * @param destinationCityName 
@@ -36,8 +41,22 @@ public class RouteServiceImpl extends GenericManagerImpl<Route, Long> implements
      *     
      * @throws DatabaseException 
      *     If there is any interruption while retrieving records from the database.
-     */
-    public List<Route> getRoute (String sourceCityName, String destinationCityName) throws DatabaseException {
-        return routeDao.retrieveRoute(sourceCityName, destinationCityName);
-    }
+	 */
+	public List<Route> getRoute (String sourceCityName, String destinationCityName) throws DatabaseException, InputException {
+		if(InputValidationUtil.checkIfSourceDestinationSame(sourceCityName, destinationCityName)) {
+			if(InputValidationUtil.checkIfSourceEmpty(sourceCityName)) {
+				if(InputValidationUtil. checkIfDestinationEmpty(destinationCityName)){
+					return routeDao.retrieveRoute(sourceCityName, destinationCityName);
+				} else {
+					throw new InputException("Please Select Destination City");
+				}
+				
+			} else {
+				throw new InputException("Please Select Source City");
+			}
+		} else {
+			throw new InputException("Source and Destination Should not be same.Please enter correct value");
+		}
+	}
+
 }

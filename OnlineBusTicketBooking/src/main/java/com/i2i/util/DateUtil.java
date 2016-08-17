@@ -5,6 +5,7 @@ import org.apache.commons.logging.LogFactory;
 import com.i2i.Constants;
 import org.springframework.context.i18n.LocaleContextHolder;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -177,4 +178,17 @@ public final class DateUtil {
     public static Date convertStringToDate(final String strDate) throws ParseException {
         return convertStringToDate(getDatePattern(), strDate);
     }
+    
+    /**
+     * @throws ParseException 
+     * 
+     */
+    public static Date convertStringDateToSqlDate(String date) throws ParseException {
+    	DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        Date travelDate =null;
+        travelDate = df.parse(date);
+        java.sql.Date dateOfTravel = new java.sql.Date(travelDate.getTime());
+        return dateOfTravel;
+    }
+     
 }

@@ -1,5 +1,7 @@
 package com.i2i.util;
 
+import java.util.Date;
+
 /**
  * <p>
  * InputValidationUtil Helper class for performing custom validations.
@@ -68,4 +70,72 @@ public class InputValidationUtil {
 	public static boolean checkIfNetBanking (String paymentMode){
 		return (paymentMode.equals("Net Banking"));
 	}
+	
+   /** 
+	 * <p>
+	 * Checks whether the source and destination same or not. 
+	 * </p>
+	 * @param sourceCityName 
+     *     Source city of the route which  is to be validated 
+     * 
+     * @param destinationCityName 
+     *     Destination city of the route which is to be validated. 
+     *     
+	 * @return boolean
+	 * 		true if sourceCityName is  not equal to destinationCityName
+	 * 		false if sourceCityName is equal to destinationCityName
+	 */
+	public static boolean checkIfSourceDestinationSame (String sourceCityName, String destinationCityName) {
+		return (!(sourceCityName.equals(destinationCityName)));
+	}
+	
+	/**
+	 * 
+	 * <p>
+	 * Checks whether the source is empty. 
+	 * </p>
+	 * @param sourceCityName 
+     *     Source city of the route which is to be validated. 
+     * 
+	 * @return boolean
+	 * 		true if sourceCityName is  not equal to "--Select Source--"
+	 * 		false if sourceCityName is  equal to "--Select Source--"
+	 */
+	public static boolean checkIfSourceEmpty (String sourceCityName) {
+		return (!(sourceCityName.equals("--Select Source--")));
+	}
+	
+	/**
+	 * 
+	 * <p>
+	 * Checks whether the destination is empty. 
+	 * </p>
+	 * @param destinationCityName 
+     *     destination city of the route which is to be validated. 
+     * 
+	 * @return boolean
+	 * 		true if destinationCityName is  not equal to "--Select Destination--"
+	 * 		false if destinationCityName is  equal to "--Select Destination--"
+	 */
+	public static boolean checkIfDestinationEmpty (String destinationCityName) {
+		return (!(destinationCityName.equals("--Select Destination--")));
+	}
+	
+	/**
+	 * 
+	 * <p>
+	 * Checks whether the date of travel is not past date. 
+	 * </p>
+	 * @param Date
+     *     Travel date  
+     * 
+	 * @return boolean
+	 * 		true if dateOfTravel is not past date
+	 * 		false if dateOfTravel is past date
+	 */
+	public static boolean checkIfDateValid (Date dateOfTravel) {
+		Date todayDate = new Date();
+		return (dateOfTravel.getTime() > todayDate.getTime());
+	}
+	
 }

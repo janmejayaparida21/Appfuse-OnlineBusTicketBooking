@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import com.i2i.exception.DatabaseException;
+import com.i2i.exception.InputException;
 import com.i2i.model.Route;
 import com.i2i.model.TripRoute;
 /**
@@ -27,7 +28,7 @@ public interface TripRouteService extends GenericManager<TripRoute, Long> {
      * @throws DatabaseException 
      *     If there is any interruption while retrieving records from the database.
      */
-    List<TripRoute> getTripRoutes (Route route, Date dateOfTravel) throws DatabaseException;
+    List<TripRoute> getTripRoutes (Route route, Date dateOfTravel) throws DatabaseException, InputException;
     
     /**
      * Gets a Trip Route record for the given Id.

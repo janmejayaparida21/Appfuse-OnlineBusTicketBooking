@@ -32,6 +32,7 @@ import com.i2i.service.ReservationService;
 import com.i2i.service.RouteService;
 import com.i2i.service.TripRouteService;
 import com.i2i.service.UserManager;
+import com.i2i.util.DateUtil;
 import com.i2i.util.InputValidationUtil;
 
 /**
@@ -100,7 +101,7 @@ public class UserController {
     }
     
     
-    /**
+   /**
     * <p>Takes source city, destination city, date of travel as input and
     *  returns the details of available busses if bus is available for the given input </p>
     *   
@@ -118,35 +119,42 @@ public class UserController {
     @RequestMapping(value = "/Search",method = RequestMethod.POST)
     public ModelAndView test(@RequestParam("source") String source,
  		                    @RequestParam("destination") String destination,@RequestParam("date") String date) {
-    	DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        Date travelDate =null;
+    	Map<String, Object> model = new HashMap<String, Object>();
+    	Map<String, String> modelException = new HashMap<String, String>();
+    	java.sql.Date dateOfTravel;
+        List<Route> routes = null;
         try {
-            travelDate = df.parse(date);
+        	dateOfTravel = (java.sql.Date) DateUtil.convertStringDateToSqlDate(date);
         } catch (ParseException e) {
         	e.printStackTrace();     
             return new ModelAndView("ExceptionPage");
         }
-       java.sql.Date dateOfTravel = new java.sql.Date(travelDate.getTime());
- 	   Map<String, Object> model = new HashMap<String, Object>();
-       List<Route> routes = null;
-       try {
-           routes = routeService.getRoute(source, destination);
-       } catch (DatabaseException e) {
-    	   e.printStackTrace(); 
-     	   return new ModelAndView("ExceptionPage");
-       }
-       for (Route route : routes) {
-           try {
-               model.put("tripRoutes", tripRouteService.getTripRoutes(route, dateOfTravel));
-           } catch (DatabaseException e) {
-     	       GenericService.exceptionWriter(e);
-     	       return new ModelAndView("ExceptionPage");
-           }
-       }
-       modelAndView.addAllObjects(model);
-       modelAndView.setViewName("ResultBus"); 
-       return modelAndView;
-        
+        try {
+        	routes = routeService.getRoute(source, destination);
+        } catch (DatabaseException e) {
+        	return new ModelAndView("ExceptionPage");
+        } catch (InputException e) {
+        	modelException.put("exception",e.getMessage());
+        	modelAndView.addAllObjects(modelException);
+        	modelAndView.setViewName("SearchBusException"); 
+        	return modelAndView;
+        }
+        for (Route route : routes) {
+        	try {
+        		model.put("tripRoutes", tripRouteService.getTripRoutes(route, dateOfTravel));
+        	} catch (InputException e) {
+            	modelException.put("exception",e.getMessage());
+            	modelAndView.addAllObjects(modelException);
+            	modelAndView.setViewName("SearchBusException"); 
+            	return modelAndView;
+            } catch (DatabaseException e) {
+        		GenericService.exceptionWriter(e);
+        		return new ModelAndView("ExceptionPage");
+        	}
+        }
+        modelAndView.addAllObjects(model);
+        modelAndView.setViewName("ResultBus"); 
+        return modelAndView;
     }      
     
     /**
@@ -210,6 +218,7 @@ public class UserController {
     @RequestMapping("/bookingHistory")
     public ModelAndView getBookingHistory(final HttpServletRequest request) {
     	Map<String, List<Reservation>> model = new HashMap<String, List<Reservation>>();
+    	String name = request.getRemoteUser();
     	try {
     		model.put("reservations", reservationService.getReservationByUser(user));
   	        modelAndView.addAllObjects(model);
@@ -222,7 +231,7 @@ public class UserController {
     }
     
     /**
-     * <p>Once payment is done the booked ticket is shown to the user</p>
+     * <p>Once payment is done the booked ticket is show to the user</p>
      *
      * @param noOfSeatsBooked
      *     noOfSeatsBooked booked by the user
