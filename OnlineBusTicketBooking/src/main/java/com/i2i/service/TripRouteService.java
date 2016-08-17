@@ -7,18 +7,18 @@ import com.i2i.exception.DatabaseException;
 import com.i2i.model.Route;
 import com.i2i.model.TripRoute;
 /**
- * Business Service Interface to handle communication between web and
- * persistence layer.
+ * <p>Business Service Interface to handle communication between web and persistence layer.
+ * </p>
  *
  * @author Shrie Satheyaa
  */
 public interface TripRouteService extends GenericManager<TripRoute, Long> {
 	
-	/**
-	 * <p>Gets Route object and Date of travel as input and returns the TripRoute object 
-	 * for the corresponding route and date of travel.
-	 * </p>
-	 * @param route 
+    /**
+     * <p>Gets Route object and Date of travel as input and returns the TripRoute object 
+     * for the corresponding route and date of travel.
+     * </p>
+     * @param route 
      *     Object of Route for which Trip Route object is to be found. 
      * 
      * @param dateOfTravel 
@@ -26,10 +26,10 @@ public interface TripRouteService extends GenericManager<TripRoute, Long> {
      *     
      * @throws DatabaseException 
      *     If there is any interruption while retrieving records from the database.
-	 */
-	List<TripRoute> getTripRoutes (Route route, Date dateOfTravel) throws DatabaseException;
-	
-	/**
+     */
+    List<TripRoute> getTripRoutes (Route route, Date dateOfTravel) throws DatabaseException;
+    
+    /**
      * Gets a Trip Route record for the given Id.
      *
      * @param id 
@@ -42,5 +42,4 @@ public interface TripRouteService extends GenericManager<TripRoute, Long> {
      *     If there is any interruption while retrieving record from the database.
      */
     TripRoute getTripRouteById (int id) throws DatabaseException;
-	
 }

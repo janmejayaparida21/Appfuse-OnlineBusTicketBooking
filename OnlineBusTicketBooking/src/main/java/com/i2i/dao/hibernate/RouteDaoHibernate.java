@@ -32,7 +32,7 @@ public class RouteDaoHibernate extends GenericDaoHibernate<Route, Long> implemen
         super(Route.class);
     }
 
-	/**
+    /**
      * <p>
      * Retrieves a specific Route record from the database.
      * </p>
@@ -49,10 +49,10 @@ public class RouteDaoHibernate extends GenericDaoHibernate<Route, Long> implemen
      * @throws DatabaseException 
      *     If there is any interruption while retrieving records from the database.
      */
-	public List<Route> retrieveRoute (String sourceCityName, String destinationCityName) throws DatabaseException {
-		Session session = null;
-		try {
-			session = getSession();
+    public List<Route> retrieveRoute (String sourceCityName, String destinationCityName) throws DatabaseException {
+        Session session = null;
+        try {
+            session = getSession();
         } catch (HibernateException e) {
         	e.printStackTrace();
         }
@@ -69,6 +69,5 @@ public class RouteDaoHibernate extends GenericDaoHibernate<Route, Long> implemen
                                         sourceCityName +" and "+ destinationCityName + " records", e);
         }
         return routes;
-	}
+    }
 }
-

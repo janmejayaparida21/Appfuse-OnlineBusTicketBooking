@@ -2,13 +2,8 @@ package com.i2i.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.i2i.dao.ReservationDao;
 import com.i2i.exception.DatabaseException;
 import com.i2i.model.Reservation;
-import com.i2i.model.Trip;
 import com.i2i.model.TripRoute;
 import com.i2i.model.User;
 
@@ -20,9 +15,9 @@ import com.i2i.model.User;
 
 public interface ReservationService {	
 	
-	/**
+    /**
      * <p>Inserts Reservation details into the database.
-	 * </p>
+     * </p>
      * @param user
      *     User Object who booked ticket
      * @param tripRoute  
@@ -41,12 +36,12 @@ public interface ReservationService {
      *     
      * @throws DatabaseException 
      *     If there is any interruption while inserting record in the database.
-	 */
-	public Reservation addReservation (User user, TripRoute tripRoute, int noOfSeatsBooked, double totalPrice, String paymentMode, boolean status) throws DatabaseException;
+     */
+    Reservation addReservation (User user, TripRoute tripRoute, int noOfSeatsBooked, double totalPrice, String paymentMode, boolean status) throws DatabaseException;
 	
-	/**
+    /**
      * <p>Retrieves User Reservation history from the Database.
-	 * </p>
+     * </p>
      * @param  id 
      *     Id of user whose reservation details has to be retrieved
      * 
@@ -54,7 +49,6 @@ public interface ReservationService {
      *     List of Reservations made by User.
      * @throws DatabaseException 
      *     If there is any interruption while retrieving records from the database.
-	 */
-	public List<Reservation> getReservationByUser(User user)throws DatabaseException; 
-	
+     */
+    List<Reservation> getReservationByUser(User user)throws DatabaseException; 
 }

@@ -16,7 +16,6 @@ import com.i2i.service.TripService;
  */
 @Service("tripService")
 public class TripServiceImpl extends GenericManagerImpl<Trip, Long> implements TripService {
-
     TripDao tripDao;
 
     @Autowired

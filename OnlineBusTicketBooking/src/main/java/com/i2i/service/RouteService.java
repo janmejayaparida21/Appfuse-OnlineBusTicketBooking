@@ -6,8 +6,8 @@ import com.i2i.exception.DatabaseException;
 import com.i2i.model.Route;
 
 /**
- * Business Service Interface to handle communication between web and
- * persistence layer.
+ * <p> Business Service Interface to handle communication between web and persistence layer.
+ * </p>
  *
  * @author Sivaranjani.D.S
  */

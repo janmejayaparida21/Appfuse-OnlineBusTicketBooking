@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.i2i.service.impl;
 
 import java.sql.Date;
@@ -22,8 +19,6 @@ import com.i2i.service.TripRouteService;
  */
 @Service("tripRouteService")
 public class TripRouteServiceImpl extends GenericManagerImpl<TripRoute, Long> implements TripRouteService {
-    
-    
     TripRouteDao tripRouteDao;
 
     @Autowired
@@ -33,10 +28,10 @@ public class TripRouteServiceImpl extends GenericManagerImpl<TripRoute, Long> im
     }
     
     /**
-	 * <p>Gets Route object and Date of travel as input and returns the TripRoute object 
-	 *  for the corresponding route and date of travel.
-	 * </p>
-	 * @param route 
+     * <p>Gets Route object and Date of travel as input and returns the TripRoute object 
+     *  for the corresponding route and date of travel.
+     * </p>
+     * @param route 
      *     Object of Route for which Trip Route object is to be found. 
      * 
      * @param dateOfTravel 
@@ -44,7 +39,7 @@ public class TripRouteServiceImpl extends GenericManagerImpl<TripRoute, Long> im
      *     
      * @throws DatabaseException 
      *     If there is any interruption while retrieving records from the database.
-	 */
+     */
     public List<TripRoute> getTripRoutes (Route route, Date dateOfTravel) throws DatabaseException {
     	return tripRouteDao.retrieveTripRoutes(route, dateOfTravel);
     }
