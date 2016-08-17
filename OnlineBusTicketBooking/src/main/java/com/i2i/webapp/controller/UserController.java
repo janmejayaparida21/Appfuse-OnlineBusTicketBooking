@@ -59,18 +59,18 @@ public class UserController {
     @Autowired
     ReservationService reservationService;
     
-    @RequestMapping("/admin/users*")
-    public ModelAndView handleRequest(@RequestParam(required = false, value = "q") String query) throws Exception {
-        Model model = new ExtendedModelMap();
-        try {
-            model.addAttribute(Constants.USER_LIST, userManager.search(query));
-        } catch (SearchException se) {
-            model.addAttribute("searchError", se.getMessage());
-            model.addAttribute(userManager.getUsers());
-        }
-        return new ModelAndView("admin/userList", model.asMap());
-    }
-    
+	@RequestMapping("/admin/users*")
+	public ModelAndView handleRequest(@RequestParam(required = false, value = "q") String query) throws Exception {
+		Model model = new ExtendedModelMap();
+		try {
+			model.addAttribute(Constants.USER_LIST, userManager.search(query));
+		} catch (SearchException se) {
+			model.addAttribute("searchError", se.getMessage());
+			model.addAttribute(userManager.getUsers());
+		}
+		return new ModelAndView("admin/userList", model.asMap());
+	}
+
     /**
      * <p>Returns the Search Bus page to the user</p>
      *
@@ -114,7 +114,7 @@ public class UserController {
     */
 	@RequestMapping(value = "/Search",method = RequestMethod.POST)
 	public ModelAndView test(@RequestParam("source") String source,
-							@RequestParam("destination") String destination,@RequestParam("date") String date) {
+                             @RequestParam("destination") String destination,@RequestParam("date") String date) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		Map<String, String> modelException = new HashMap<String, String>();
 		java.sql.Date dateOfTravel;
@@ -239,7 +239,7 @@ public class UserController {
 	public ModelAndView getPaymentPage(@RequestParam("noOfSeatsBooked")int noOfSeatsBooked, 
 	                                   @RequestParam("totalPrice") double totalPrice, 
 	                                   @RequestParam("paymentMode") String paymentMode,
-									   final HttpServletRequest request) {
+	                                   final HttpServletRequest request) {
 	
 		String current_user = request.getRemoteUser();
 		boolean status = false;
