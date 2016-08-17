@@ -91,8 +91,9 @@ background:blue;
     
 </style>
   <script>
-  
-  
+    window.onload = function() {
+	    alert("${exception}");
+	}
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -198,8 +199,7 @@ background:blue;
         	}
         	
         }
-
-        
+     
         function formValidation(){
         	var numberOfPassengers = Number(document.getElementById("noOfSeatsBooked").value);
         	var paymentMode =  document.getElementById("paymentMode").value;
@@ -219,7 +219,7 @@ background:blue;
         		return false;
         	}	
         }
-        
+      
     </script>
    </div>  
 </body>

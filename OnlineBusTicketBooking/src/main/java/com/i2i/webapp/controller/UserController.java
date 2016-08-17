@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.i2i.Constants;
 import com.i2i.dao.SearchException;
 import com.i2i.exception.DatabaseException;
+import com.i2i.exception.InputException;
 import com.i2i.model.Reservation;
 import com.i2i.model.Route;
 import com.i2i.model.TripRoute;
@@ -31,6 +32,7 @@ import com.i2i.service.ReservationService;
 import com.i2i.service.RouteService;
 import com.i2i.service.TripRouteService;
 import com.i2i.service.UserManager;
+import com.i2i.util.InputValidationUtil;
 
 /**
  * Controller to perform basic operations 
@@ -208,7 +210,6 @@ public class UserController {
     @RequestMapping("/bookingHistory")
     public ModelAndView getBookingHistory(final HttpServletRequest request) {
     	Map<String, List<Reservation>> model = new HashMap<String, List<Reservation>>();
-    	String name = request.getRemoteUser();
     	try {
     		model.put("reservations", reservationService.getReservationByUser(user));
   	        modelAndView.addAllObjects(model);
@@ -221,7 +222,7 @@ public class UserController {
     }
     
     /**
-     * <p>Once payment is done the booked ticket is show to the user</p>
+     * <p>Once payment is done the booked ticket is shown to the user</p>
      *
      * @param noOfSeatsBooked
      *     noOfSeatsBooked booked by the user
@@ -249,11 +250,12 @@ public class UserController {
 	  	} catch (DatabaseException e) {
 		  	return new ModelAndView("ExceptionPage");
 	  	}
-	  
-	  	if(noOfSeatsBooked > tripRoute.getTrip().getSeatVacancy()) {
+	    int seatsAvailable = tripRoute.getTrip().getSeatVacancy();
+	  	
+	  	if(!(InputValidationUtil.checkIfNoOfSeatsBookedIsValid(noOfSeatsBooked, seatsAvailable))) {
 		  	return new ModelAndView("noSeatException"); 
 	  	} else {
-	      	if (paymentMode.equals("Net Banking")) {
+	      	if (InputValidationUtil.checkIfNetBanking(paymentMode)) {
 	    	  return new ModelAndView("PaymentFailure");
 	      	} else {
 	    	  	status = true;
@@ -267,6 +269,21 @@ public class UserController {
 	    	  	} catch (DatabaseException e) {
 	    		  	GenericService.exceptionWriter(e);
 	    		  	return new ModelAndView("ExceptionPage");
+		      	} catch (InputException e) {
+		      		Map<String,List<TripRoute>> tripRouteModel = new HashMap<String,List<TripRoute>>();
+		      		List<TripRoute> tripRoutes = new ArrayList<TripRoute>();
+		      		try {
+						tripRoutes.add(tripRouteService.getTripRouteById(tripRoute.getId()));
+					} catch (DatabaseException e1) {
+						e1.printStackTrace();
+					}
+		      		tripRouteModel.put("tripRoute", tripRoutes );
+		            modelAndView.addAllObjects(tripRouteModel);
+	    		  	Map<String, String> model = new HashMap<String,String>();
+	    		  	model.put("exception", e.getMessage());
+	    		  	modelAndView.addAllObjects(model);
+	    		  	modelAndView.setViewName("payNowException");
+	    		  	return modelAndView;
 		      	}
 	      	}     	  
 	  	}

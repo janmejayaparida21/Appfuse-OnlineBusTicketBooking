@@ -3,6 +3,7 @@ package com.i2i.service;
 import java.util.List;
 
 import com.i2i.exception.DatabaseException;
+import com.i2i.exception.InputException;
 import com.i2i.model.Reservation;
 import com.i2i.model.TripRoute;
 import com.i2i.model.User;
@@ -36,8 +37,10 @@ public interface ReservationService {
      *     
      * @throws DatabaseException 
      *     If there is any interruption while inserting record in the database.
+     * @throws InputException 
+     *     If there is any problem occurred due to the inputs given by the user
      */
-    Reservation addReservation (User user, TripRoute tripRoute, int noOfSeatsBooked, double totalPrice, String paymentMode, boolean status) throws DatabaseException;
+    Reservation addReservation (User user, TripRoute tripRoute, int noOfSeatsBooked, double totalPrice, String paymentMode, boolean status) throws DatabaseException, InputException;
 	
     /**
      * <p>Retrieves User Reservation history from the Database.
