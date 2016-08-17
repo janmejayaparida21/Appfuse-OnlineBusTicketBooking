@@ -112,46 +112,46 @@ public class UserController {
     *     Returns ModelAndView object which is rendered with the View 'ExceptionPage' when exception occurred
     *     Returns ModelAndView object which is rendered with the view 'SearchBusException, when exception occurred
     */
-    @RequestMapping(value = "/Search",method = RequestMethod.POST)
-    public ModelAndView test(@RequestParam("source") String source,
- 		                    @RequestParam("destination") String destination,@RequestParam("date") String date) {
-    	Map<String, Object> model = new HashMap<String, Object>();
-    	Map<String, String> modelException = new HashMap<String, String>();
-    	java.sql.Date dateOfTravel;
-        List<Route> routes = null;
-        try {
-            dateOfTravel = (java.sql.Date) DateUtil.convertStringDateToSqlDate(date);
-        } catch (ParseException e) {
-            return new ModelAndView("ExceptionPage");
-        }
-        try {
-            routes = routeService.getRoute(source, destination);
-        } catch (DatabaseException e) {
-            return new ModelAndView("ExceptionPage");
-        } catch (InputException e) {
-            modelException.put("exception",e.getMessage());
-            modelAndView.addAllObjects(modelException);
-            modelAndView.setViewName("SearchBusException"); 
-            return modelAndView;
-        }
-        for (Route route : routes) {
-            try {
-            	model.put("tripRoutes", tripRouteService.getTripRoutes(route, dateOfTravel));
-            } catch (InputException e) {
-            	modelException.put("exception",e.getMessage());
-            	modelAndView.addAllObjects(modelException);
-            	modelAndView.setViewName("SearchBusException"); 
-            	return modelAndView;
-            } catch (DatabaseException e) {
-            	GenericService.exceptionWriter(e);
-            	return new ModelAndView("ExceptionPage");
-            }
-        }
-        modelAndView.addAllObjects(model);
-        modelAndView.setViewName("ResultBus"); 
-        return modelAndView;
-    }      
-    
+	@RequestMapping(value = "/Search",method = RequestMethod.POST)
+	public ModelAndView test(@RequestParam("source") String source,
+							@RequestParam("destination") String destination,@RequestParam("date") String date) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		Map<String, String> modelException = new HashMap<String, String>();
+		java.sql.Date dateOfTravel;
+		List<Route> routes = null;
+		try {
+			dateOfTravel = (java.sql.Date) DateUtil.convertStringDateToSqlDate(date);
+		} catch (ParseException e) {
+			return new ModelAndView("ExceptionPage");
+		}
+		try {
+			routes = routeService.getRoute(source, destination);
+		} catch (DatabaseException e) {
+			return new ModelAndView("ExceptionPage");
+		} catch (InputException e) {
+			modelException.put("exception",e.getMessage());
+			modelAndView.addAllObjects(modelException);
+			modelAndView.setViewName("SearchBusException"); 
+	    return modelAndView;
+		}
+		for (Route route : routes) {
+			try {
+				model.put("tripRoutes", tripRouteService.getTripRoutes(route, dateOfTravel));
+			} catch (InputException e) {
+				modelException.put("exception",e.getMessage());
+				modelAndView.addAllObjects(modelException);
+				modelAndView.setViewName("SearchBusException"); 
+				return modelAndView;
+			} catch (DatabaseException e) {
+				GenericService.exceptionWriter(e);
+				return new ModelAndView("ExceptionPage");
+			}
+		}
+		modelAndView.addAllObjects(model);
+		modelAndView.setViewName("ResultBus"); 
+		return modelAndView;
+	}      
+
     /**
      * <p>Gets the required trip from the user and redirects to booking page</p>
      *
@@ -283,8 +283,8 @@ public class UserController {
 					modelAndView.addAllObjects(model);
 					modelAndView.setViewName("payNowException");
 					return modelAndView;
-		      	}
-	      	}     	  
+				}
+			}     	  
 		}
 	}  
 }
