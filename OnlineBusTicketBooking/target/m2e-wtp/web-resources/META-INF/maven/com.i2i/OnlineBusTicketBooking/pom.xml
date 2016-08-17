@@ -63,13 +63,9 @@
         <amp.genericCore>true</amp.genericCore>
         <amp.fullSource>false</amp.fullSource>
         <dao.framework>hibernate</dao.framework>
-        <db.name>OnlineTicketBooking</db.name>
+        <db.name>OnlineBusTicketBooking</db.name>
         <web.framework>spring</web.framework>
-<<<<<<< a5bb1a8cb71bc7bdf67fcee5371a087e5529c5d0
-        <jdbc.password>admin</jdbc.password>
-=======
         <jdbc.password>root</jdbc.password>
->>>>>>> INFO:Performed Server side validation for SearchBus.jsp page.
         <!-- Framework/Plugin versions -->
         <appfuse.version>3.5.0</appfuse.version>
         <java.version>1.7</java.version>
