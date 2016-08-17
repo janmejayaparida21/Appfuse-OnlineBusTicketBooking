@@ -16,7 +16,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 /**
  * This class represents the basic "TripRoute" object. 
  * 
@@ -74,7 +73,7 @@ public class TripRoute {
     
 	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn (name = "Trip_Route_Id")
-    private Set<Reservation> reservations = new HashSet<Reservation>();
+	private Set<Reservation> reservations = new HashSet<Reservation>();
 	
 	public int getId() {
 		return id;

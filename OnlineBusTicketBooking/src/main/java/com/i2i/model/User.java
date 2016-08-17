@@ -97,12 +97,13 @@ public class User extends BaseObject implements Serializable, UserDetails {
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinColumn (name = "Created_By")
     private Set<Travels> travels = new HashSet<Travels>();
-	
-	/**
-	 * Default constructor - creates a new instance with no values set.
-	 * 
-	 */
-	public User() {
+    
+    /**
+     * Default constructor - creates a new instance with no values set.
+     * 
+     */
+    public User() {
+    	
     }
 
     /**
