@@ -210,10 +210,7 @@ public class UserController {
     	Map<String, List<Reservation>> model = new HashMap<String, List<Reservation>>();
     	String name = request.getRemoteUser();
     	try {
-         	//List<Reservation> reservations = reservationService.getReservationByUser(user);
-        	//for (Reservation reservation : reservations) {
-    	        model.put("reservations", reservationService.getReservationByUser(user));
-    	   // }
+    		model.put("reservations", reservationService.getReservationByUser(user));
   	        modelAndView.addAllObjects(model);
             modelAndView.setViewName("bookingHistory");
             return modelAndView;
@@ -243,35 +240,35 @@ public class UserController {
  		                               @RequestParam("totalPrice") double totalPrice, 
  		                               @RequestParam("paymentMode") String paymentMode,
  		                               final HttpServletRequest request) {
- 	  
-      String current_user = request.getRemoteUser();
- 	  boolean status = false;
- 	  user = userManager.getUserByUsername(current_user);
- 	  try {
- 	      tripRoute = tripRouteService.getTripRouteById(tripRoute.getId());
- 	  } catch (DatabaseException e) {
- 		  return new ModelAndView("ExceptionPage");
- 	  }
- 	  
- 	  if(noOfSeatsBooked > tripRoute.getTrip().getSeatVacancy()) {
- 		  return new ModelAndView("noSeatException"); 
- 	  } else {
- 	      if (paymentMode.equals("Net Banking")) {
- 		      return new ModelAndView("PaymentFailure");
- 	      } else {
-     		  status = true;
- 	   	      try {
- 		   	      reservation = reservationService.addReservation(user, tripRoute, noOfSeatsBooked, totalPrice, paymentMode, status);
- 		   	      Map<String, Reservation> model = new HashMap<String, Reservation>();
- 		   	      model.put("reservation", reservation);
- 		   	      modelAndView.addAllObjects(model);
- 	              modelAndView.setViewName("PaymentSuccess");
- 	              return modelAndView;
- 		      } catch (DatabaseException e) {
- 		       	  GenericService.exceptionWriter(e);
- 			      return new ModelAndView("ExceptionPage");
- 		      }
- 	      }     	  
- 	  }
-    }  
+
+    	String current_user = request.getRemoteUser();
+	  	boolean status = false;
+	  	user = userManager.getUserByUsername(current_user);
+	  	try {
+		  	tripRoute = tripRouteService.getTripRouteById(tripRoute.getId());
+	  	} catch (DatabaseException e) {
+		  	return new ModelAndView("ExceptionPage");
+	  	}
+	  
+	  	if(noOfSeatsBooked > tripRoute.getTrip().getSeatVacancy()) {
+		  	return new ModelAndView("noSeatException"); 
+	  	} else {
+	      	if (paymentMode.equals("Net Banking")) {
+	    	  return new ModelAndView("PaymentFailure");
+	      	} else {
+	    	  	status = true;
+	    	  	try {
+	    		  	reservation = reservationService.addReservation(user, tripRoute, noOfSeatsBooked, totalPrice, paymentMode, status);
+	    		  	Map<String, Reservation> model = new HashMap<String, Reservation>();
+	    		  	model.put("reservation", reservation);
+	    		  	modelAndView.addAllObjects(model);
+	    		  	modelAndView.setViewName("PaymentSuccess");
+	    		  	return modelAndView;
+	    	  	} catch (DatabaseException e) {
+	    		  	GenericService.exceptionWriter(e);
+	    		  	return new ModelAndView("ExceptionPage");
+		      	}
+	      	}     	  
+	  	}
+	}  
 }

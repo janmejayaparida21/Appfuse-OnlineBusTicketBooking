@@ -12,6 +12,7 @@ import com.i2i.model.TripRoute;
 import com.i2i.model.User;
 import com.i2i.service.ReservationService;
 import com.i2i.service.TripService;
+import com.i2i.exception.InputException;
 
 /**
  * <p>ReservationServiceImpl which permits to perform all the tasks related to Reservation</p>
