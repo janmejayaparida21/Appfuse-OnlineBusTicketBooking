@@ -1,7 +1,6 @@
 package com.i2i.model;
 
 import java.sql.Date;
-import java.sql.Time;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,8 +16,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
- * This class represents the basic "Trip" object
- * <p>Contains various attributes of Trip, and its getters and setters </p> 
+ * This class represents the basic "Trip" object.
+ * 
+ * <p>Contains various attributes of Trip, and its getters and setters </p>
+ *  
  * @author Shrie Satheyaa
  * @version 1.0
  * @created 2016-07-23
@@ -31,18 +32,18 @@ public class Trip {
 	@Id
 	@Column (name = "Id")
 	@GeneratedValue
-    private int id;
+	private int id;
 	
 	@Column (name = "Seat_Vacancy")
-    private int seatVacancy;
+	private int seatVacancy;
 	
 	@ManyToOne 
 	@JoinColumn (name = "Bus_Id")
-    private Bus bus;
+	private Bus bus;
 	
 	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn (name = "Trip_Id")
-    private Set<TripRoute> tripRoutes = new HashSet<TripRoute> ();
+	private Set<TripRoute> tripRoutes = new HashSet<TripRoute> ();
 	
 	@ManyToOne 
 	@JoinColumn (name = "Created_By")

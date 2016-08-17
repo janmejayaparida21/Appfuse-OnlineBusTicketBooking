@@ -1,6 +1,8 @@
 package com.i2i.model;
 
 import java.util.Set;
+import java.util.HashSet;
+import java.sql.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,12 +15,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import java.util.HashSet;
-import java.sql.Date;
-import java.sql.Time;
-
 /**
  * This class represents the basic "Travels" object.
+ * 
  * <P>Contains various attributes of Travels and their getter setters.</p>
  * 
  * @author Anupriya
@@ -42,7 +41,6 @@ public class Travels {
 	
 	@Column (name = "Contact_Number")
 	private long contactNumber;
-	
 	
 	@ManyToOne 
 	@JoinColumn (name = "Created_By")

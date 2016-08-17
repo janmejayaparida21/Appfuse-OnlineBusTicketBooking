@@ -42,18 +42,16 @@ import org.springframework.security.core.userdetails.UserDetails;
  * This class represents the basic "user" object in AppFuse that allows for authentication
  * and user management.  It implements Spring Security's UserDetails interface.
  *
- * @author <a href="mailto:matt@raibledesigns.com">Matt Raible</a>
- *         Updated by Dan Kibler (dan@getrolling.com)
- *         Extended to implement Spring UserDetails interface
- *         by David Carter david@carter.net
+ * @author Anupriya,Sivaranjani,Shrie Satheyaa
+ * @version 1.0
  */
+
 @Entity
 @Table(name = "app_user")
 @Indexed
 @XmlRootElement
 public class User extends BaseObject implements Serializable, UserDetails {
     private static final long serialVersionUID = 3832626162173359411L;
-
     private Long id;
     private String username;                    // required
     private String password;                    // required
@@ -71,41 +69,40 @@ public class User extends BaseObject implements Serializable, UserDetails {
     private boolean accountExpired;
     private boolean accountLocked;
     private boolean credentialsExpired;
-
     
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-	@JoinColumn (name = "User_Id")
-	private Set<Reservation> reservations = new HashSet<Reservation>();
-	
-	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-	@JoinColumn (name = "Created_By")
-	private Set<Bus> buses = new HashSet<Bus>();
-	
-	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-	@JoinColumn (name = "Created_By")
-	private Set<City> cities = new HashSet<City>();
-	
-	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-	@JoinColumn (name = "Created_By")
-	private Set<Trip> trips = new HashSet<Trip>();
-	
-	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-	@JoinColumn (name = "Created_By")
-	private Set<TripRoute> tripRoutes = new HashSet<TripRoute>();
-	
-	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-	@JoinColumn (name = "Created_By")
-	private Set<Route> routes = new HashSet<Route>();
-	
-	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-	@JoinColumn (name = "Created_By")
-	private Set<Travels> travels = new HashSet<Travels>();
-
+    @JoinColumn (name = "User_Id")
+    private Set<Reservation> reservations = new HashSet<Reservation>();
+    
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn (name = "Created_By")
+    private Set<Bus> buses = new HashSet<Bus>();
+    
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn (name = "Created_By")
+    private Set<City> cities = new HashSet<City>();
+    
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn (name = "Created_By")
+    private Set<Trip> trips = new HashSet<Trip>();
+    
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn (name = "Created_By")
+    private Set<TripRoute> tripRoutes = new HashSet<TripRoute>();
+    
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn (name = "Created_By")
+    private Set<Route> routes = new HashSet<Route>();
+    
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn (name = "Created_By")
+    private Set<Travels> travels = new HashSet<Travels>();
 	
 	/**
-     * Default constructor - creates a new instance with no values set.
-     */
-    public User() {
+	 * Default constructor - creates a new instance with no values set.
+	 * 
+	 */
+	public User() {
     }
 
     /**
@@ -214,14 +211,12 @@ public class User extends BaseObject implements Serializable, UserDetails {
     @Transient
     public List<LabelValue> getRoleList() {
         List<LabelValue> userRoles = new ArrayList<LabelValue>();
-
         if (this.roles != null) {
             for (Role role : roles) {
                 // convert the user's roles to LabelValue Objects
                 userRoles.add(new LabelValue(role.getName(), role.getName()));
             }
         }
-
         return userRoles;
     }
 
@@ -365,9 +360,8 @@ public class User extends BaseObject implements Serializable, UserDetails {
     public void setCredentialsExpired(boolean credentialsExpired) {
         this.credentialsExpired = credentialsExpired;
     }
-
-	/**
-
+    
+    /**
      * {@inheritDoc}
      */
     public boolean equals(Object o) {

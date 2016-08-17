@@ -1,6 +1,8 @@
 package com.i2i.model;
 
 import java.util.Set;
+import java.util.HashSet;
+import java.sql.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,10 +15,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import java.util.HashSet;
-import java.sql.Date;
 /**
- * This class represents the basic "City" object
+ * This class represents the basic "City" object.
+ * 
  * <P>Contains various attributes of City and their getter setters.</p>
  * 
  * @author Anupriya-Ideas2It

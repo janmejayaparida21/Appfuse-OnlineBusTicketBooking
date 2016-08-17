@@ -18,7 +18,7 @@ import javax.persistence.Table;
 
 
 /**
- * This class represents the basic "TripRoute" object 
+ * This class represents the basic "TripRoute" object. 
  * 
  * <p> Contains various attributes of Trip and its getters and setters</p>
  * 

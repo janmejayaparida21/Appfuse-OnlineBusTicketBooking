@@ -1,7 +1,6 @@
 package com.i2i.model;
 
 import java.sql.Date;
-import java.sql.Time;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,8 +11,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * This class represents the basic "Route" object
+ * This class represents the basic "Route" object.
+ * 
  * <p>Contains various attributes, its getters and setters of Route</p>
+ * 
  * @author Shrie Satheyaa
  * @version 1.0
  * @created 2016-07-26
