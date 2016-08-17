@@ -43,11 +43,13 @@ public class RouteDaoHibernate extends GenericDaoHibernate<Route, Long> implemen
      * @param destinationCityName 
      *     Destination city of the route which is to be retrieved. 
      *     
+     * @return routes
+     *     List of Route objects retrieved from the database.
+     *      
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database while retrieving the record.
+     *     If there is any interruption while retrieving records from the database.
      */
 	public List<Route> retrieveRoute (String sourceCityName, String destinationCityName) throws DatabaseException {
-		Route route = null;
 		Session session = null;
 		try {
 			session = getSession();

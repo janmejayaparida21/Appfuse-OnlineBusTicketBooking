@@ -59,7 +59,7 @@ public class ReservationDaoHibernate extends GenericDaoHibernate<Reservation, Lo
      *     Reservation object that is to be inserted into the database. 
      *     
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database.
+     *     If there is any interruption while inserting record in the database.
      */
 	public void insertReservation(Reservation reservation) throws DatabaseException{
         Session session = getSession();
@@ -85,7 +85,7 @@ public class ReservationDaoHibernate extends GenericDaoHibernate<Reservation, Lo
      *     User whose reservation details has to be retrieved
      *     
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database.
+     *     If there is any interruption while retrieving records from the database.
      */
 	public List<Reservation> retrieveReservationsByUser(User user) throws DatabaseException{
 		List<Reservation> reservations = null;

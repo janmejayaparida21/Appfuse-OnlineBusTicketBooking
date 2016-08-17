@@ -29,7 +29,7 @@ public interface TripRouteDao extends GenericDao<TripRoute, Long> {
      *    List of TripRoute objects retrieved
      *    
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database.
+     *     If there is any interruption while retrieving records from the database.
      */
 	public List<TripRoute> retrieveTripRoutes (Route route, Date dateOfTravel) throws DatabaseException;
 	
@@ -43,7 +43,7 @@ public interface TripRouteDao extends GenericDao<TripRoute, Long> {
      *    TripRoute object that matches the given Id.
      *
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database while retrieving the record.
+     *     If there is any interruption while retrieving record from the database.
      */
 	public TripRoute retrieveTripRouteById (int id) throws DatabaseException;
 }

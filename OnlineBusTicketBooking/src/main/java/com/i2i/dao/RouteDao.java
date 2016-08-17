@@ -24,7 +24,7 @@ public interface RouteDao extends GenericDao<Route, Long> {
      *     Destination city of the route which is to be retrieved. 
      *     
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database while retrieving the record.
+     *     If there is any interruption while retrieving records from the database.
      */
 	List<Route> retrieveRoute (String sourceCityName, String destinationCityName) throws DatabaseException;
 }

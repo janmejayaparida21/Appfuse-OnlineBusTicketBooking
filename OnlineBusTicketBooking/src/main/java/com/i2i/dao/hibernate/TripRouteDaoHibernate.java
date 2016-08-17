@@ -18,8 +18,8 @@ import com.i2i.model.Route;
 import com.i2i.model.TripRoute;
 
 /**
- * This class interacts with hibernate session to 
- * retrieve TripRoute objects.
+ * <p>This class interacts with hibernate session to retrieve TripRoute objects.
+ * </p>
  *
  * @author Sivaranjani.D.S
  */
@@ -50,7 +50,7 @@ public class TripRouteDaoHibernate extends GenericDaoHibernate<TripRoute, Long> 
      *    List of TripRoute objects retrieved
      *    
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database.
+     *     If there is any interruption while retrieving records from the database.
      */
 	public List<TripRoute> retrieveTripRoutes (Route route, Date dateOfTravel) throws DatabaseException {
         List<TripRoute> tripRoutes = null;
@@ -81,7 +81,7 @@ public class TripRouteDaoHibernate extends GenericDaoHibernate<TripRoute, Long> 
      *    TripRoute object that matches the given Id.
      *
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database while retrieving the record.
+     *     If there is any interruption while retrieving record from the database.
      */
     public TripRoute retrieveTripRouteById (int id) throws DatabaseException {
         Session session = getSession();

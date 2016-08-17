@@ -17,10 +17,10 @@ public interface TripDao extends GenericDao<Trip, Long> {
      *    Trip object which is to be updated
      *
      * @return Trip
-     *     Trip object after updation 
+     *     Trip object after update
      *     
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database.
+     *     If there is any interruption while updating record in the database.
      */
 	public Trip updateTrip(Trip trip) throws DatabaseException;
 }	

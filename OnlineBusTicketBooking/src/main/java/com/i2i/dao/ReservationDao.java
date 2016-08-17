@@ -23,7 +23,7 @@ public interface ReservationDao extends GenericDao<Reservation, Long> {
      *     Reservation object that is to be inserted into the database. 
      *     
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database.
+     *     If there is any interruption while inserting record in the database.
      */
 	public void insertReservation(Reservation reservation) throws DatabaseException;
 	
@@ -36,7 +36,7 @@ public interface ReservationDao extends GenericDao<Reservation, Long> {
      *     User whose reservation details has to be retrieved
      *     
      * @throws DatabaseException 
-     *     If there is any interruption occurred in the database.
+     *     If there is any interruption while retrieving records from the database.
      */
 	public List<Reservation> retrieveReservationsByUser(User user)throws DatabaseException;
 	
