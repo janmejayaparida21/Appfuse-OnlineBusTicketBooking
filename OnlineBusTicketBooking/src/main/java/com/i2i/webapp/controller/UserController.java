@@ -236,53 +236,54 @@ public class UserController {
      *     Returns ModelAndView object which is rendered with the View 'PaymentFailure' if payment is failed
      *     Returns ModelAndView object which is rendered with the View 'ExceptionPage' when exception occurred
      */
-    @RequestMapping(value = "/payment")
-    public ModelAndView getPaymentPage(@RequestParam("noOfSeatsBooked")int noOfSeatsBooked, 
- 		                               @RequestParam("totalPrice") double totalPrice, 
- 		                               @RequestParam("paymentMode") String paymentMode,
- 		                               final HttpServletRequest request) {
-
-    	String current_user = request.getRemoteUser();
-	  	boolean status = false;
-	  	user = userManager.getUserByUsername(current_user);
-	  	try {
-		  	tripRoute = tripRouteService.getTripRouteById(tripRoute.getId());
-	  	} catch (DatabaseException e) {
-		  	return new ModelAndView("ExceptionPage");
-	  	}
-	    int seatsAvailable = tripRoute.getTrip().getSeatVacancy();
-	  	
-	  	if(!(InputValidationUtil.checkIfNoOfSeatsBookedIsValid(noOfSeatsBooked, seatsAvailable))) {
-		  	return new ModelAndView("noSeatException"); 
-	  	} else {
-	      	if (InputValidationUtil.checkIfNetBanking(paymentMode)) {
-	    	  return new ModelAndView("PaymentFailure");
-	      	} else {
-	    	  	status = true;
-	    	  	try {
-	    		  	reservation = reservationService.addReservation(user, tripRoute, noOfSeatsBooked, totalPrice, paymentMode, status);
-	    		  	Map<String, Reservation> model = new HashMap<String, Reservation>();
-	    		  	model.put("reservation", reservation);
-	    		  	modelAndView.addAllObjects(model);
-	    		  	modelAndView.setViewName("PaymentSuccess");
-	    		  	return modelAndView;
-	    	  	} catch (DatabaseException e) {
-	    		  	GenericService.exceptionWriter(e);
-	    		  	return new ModelAndView("ExceptionPage");
-		      	} catch (InputException e) {
-		      		Map<String,List<TripRoute>> tripRouteModel = new HashMap<String,List<TripRoute>>();
-		      		List<TripRoute> tripRoutes = new ArrayList<TripRoute>();
-		      		try {
+	@RequestMapping(value = "/payment")
+	public ModelAndView getPaymentPage(@RequestParam("noOfSeatsBooked")int noOfSeatsBooked, 
+										@RequestParam("totalPrice") double totalPrice, 
+										@RequestParam("paymentMode") String paymentMode,
+										final HttpServletRequest request) {
+	
+		String current_user = request.getRemoteUser();
+		boolean status = false;
+		user = userManager.getUserByUsername(current_user);
+		try {
+			tripRoute = tripRouteService.getTripRouteById(tripRoute.getId());
+		} catch (DatabaseException e) {
+			return new ModelAndView("ExceptionPage");
+		}
+		int seatsAvailable = tripRoute.getTrip().getSeatVacancy();
+	
+		if(!(InputValidationUtil.checkIfNoOfSeatsBookedIsValid(noOfSeatsBooked, seatsAvailable))) {
+			return new ModelAndView("noSeatException"); 
+		} else {
+			if (InputValidationUtil.checkIfNetBanking(paymentMode)) {
+				return new ModelAndView("PaymentFailure");
+			} else {
+				status = true;
+				try {
+					reservation = reservationService.addReservation(user, tripRoute, noOfSeatsBooked, totalPrice, paymentMode, status);
+					Map<String, Reservation> model = new HashMap<String, Reservation>();
+					model.put("reservation", reservation);
+					modelAndView.addAllObjects(model);
+					modelAndView.setViewName("PaymentSuccess");
+					return modelAndView;
+				} catch (DatabaseException e) {
+					GenericService.exceptionWriter(e);
+					return new ModelAndView("ExceptionPage");
+				} catch (InputException e) {
+					Map<String,List<TripRoute>> tripRouteModel = new HashMap<String,List<TripRoute>>();
+					List<TripRoute> tripRoutes = new ArrayList<TripRoute>();
+					try {
 						tripRoutes.add(tripRouteService.getTripRouteById(tripRoute.getId()));
 					} catch (DatabaseException e1) {
-						e1.printStackTrace();
+						GenericService.exceptionWriter(e);
+						return new ModelAndView("ExceptionPage");
 					}
-		      		tripRouteModel.put("tripRoute", tripRoutes );
-		            modelAndView.addAllObjects(tripRouteModel);
-	    		  	Map<String, String> model = new HashMap<String,String>();
-	    		  	model.put("exception", e.getMessage());
-	    		  	modelAndView.addAllObjects(model);
-	    		  	modelAndView.setViewName("payNowException");
+					tripRouteModel.put("tripRoute", tripRoutes );
+					modelAndView.addAllObjects(tripRouteModel);
+					Map<String, String> model = new HashMap<String,String>();
+					model.put("exception", e.getMessage());
+					modelAndView.addAllObjects(model);
+					modelAndView.setViewName("payNowException");
 	    		  	return modelAndView;
 		      	}
 	      	}     	  
