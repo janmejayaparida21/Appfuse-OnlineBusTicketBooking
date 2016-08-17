@@ -68,21 +68,20 @@ public class ReservationDaoHibernate extends GenericDaoHibernate<Reservation, Lo
      * @throws DatabaseException 
      *     If there is any interruption while retrieving records from the database.
      */
-    public List<Reservation> retrieveReservationsByUser(User user) throws DatabaseException{
+	public List<Reservation> retrieveReservationsByUser(User user) throws DatabaseException{
 		List<Reservation> reservations = null;
-		System.out.println("DAO : " + user);
-        Session session = getSession();
-        try{
-            String hql = "FROM " + Reservation.class.getName() + " reservation WHERE reservation.user =:user ";
-            Query query = session.createQuery(hql);
-            query.setParameter("user", user);
-            reservations = query.list();
-            return reservations;
-        } catch (HibernateException e) {
-            throw new DatabaseException("Some problem occured while retrieving reservation", e);
-        } finally {
-        	session.flush(); 
-        }
-    }
+		Session session = getSession();
+		try{
+			String hql = "FROM " + Reservation.class.getName() + " reservation WHERE reservation.user =:user ";
+			Query query = session.createQuery(hql);
+			query.setParameter("user", user);
+			reservations = query.list();
+			return reservations;
+		} catch (HibernateException e) {
+			throw new DatabaseException("Some problem occured while retrieving reservation", e);
+	    } finally {
+	    	session.flush(); 
+	    }
+	}
 }
 	
