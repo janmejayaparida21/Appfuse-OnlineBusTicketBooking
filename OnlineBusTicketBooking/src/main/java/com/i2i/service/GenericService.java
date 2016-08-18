@@ -38,7 +38,7 @@ public class GenericService {
     	try {
             Date date = new Date();
              SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-             FileWriter fileWriter = new FileWriter("log/"+dateFormat.format(date)+".txt", true);
+             FileWriter fileWriter = new FileWriter("OnlineTicketBooking/log/"+dateFormat.format(date)+".txt", true);
              bufferedWriter = new BufferedWriter(fileWriter);
              SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
              fileWriter.append(simpleDateFormat.format(date));
