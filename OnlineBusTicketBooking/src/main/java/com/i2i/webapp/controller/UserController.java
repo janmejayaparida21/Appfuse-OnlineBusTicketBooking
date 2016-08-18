@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 
 import com.i2i.Constants;
 import com.i2i.dao.SearchException;
@@ -44,7 +48,8 @@ public class UserController {
     private ModelAndView modelAndView = new ModelAndView();
     private Reservation reservation = null;
     private User user = null;
-
+    private final Log log = LogFactory.getLog(UserController.class);
+    
     @Autowired
     public void setUserManager(UserManager userManager) {
         this.userManager = userManager;
@@ -65,6 +70,7 @@ public class UserController {
 		try {
 			model.addAttribute(Constants.USER_LIST, userManager.search(query));
 		} catch (SearchException se) {
+			log.error(se);
 			model.addAttribute("searchError", se.getMessage());
 			model.addAttribute(userManager.getUsers());
 		}
@@ -122,13 +128,16 @@ public class UserController {
 		try {
 			dateOfTravel = (java.sql.Date) DateUtil.convertStringDateToSqlDate(date);
 		} catch (ParseException e) {
+			log.error(e);
 			return new ModelAndView("ExceptionPage");
 		}
 		try {
 			routes = routeService.getRoute(source, destination);
 		} catch (DatabaseException e) {
+			log.error(e);
 			return new ModelAndView("ExceptionPage");
 		} catch (InputException e) {
+			log.error(e);
 			modelException.put("exception",e.getMessage());
 			modelAndView.addAllObjects(modelException);
 			modelAndView.setViewName("SearchBusException"); 
@@ -138,12 +147,13 @@ public class UserController {
 			try {
 				model.put("tripRoutes", tripRouteService.getTripRoutes(route, dateOfTravel));
 			} catch (InputException e) {
+				log.error(e);
 				modelException.put("exception",e.getMessage());
 				modelAndView.addAllObjects(modelException);
 				modelAndView.setViewName("SearchBusException"); 
 				return modelAndView;
 			} catch (DatabaseException e) {
-				GenericService.exceptionWriter(e);
+				log.error(e);
 				return new ModelAndView("ExceptionPage");
 			}
 		}
@@ -176,7 +186,7 @@ public class UserController {
 			modelAndView.setViewName("PayNow");
 			return modelAndView;
 		} catch (DatabaseException e) {
-			GenericService.exceptionWriter(e);
+			log.error(e);
 			return new ModelAndView("ExceptionPage");          
 	    }
 	}
@@ -215,7 +225,7 @@ public class UserController {
 			modelAndView.setViewName("bookingHistory");
 			return modelAndView;
 		} catch (DatabaseException e) {
-			GenericService.exceptionWriter(e);
+			log.error(e);
 			return new ModelAndView("ExceptionPage");
 	    }
 	}
@@ -247,6 +257,7 @@ public class UserController {
 		try {
 			tripRoute = tripRouteService.getTripRouteById(tripRoute.getId());
 		} catch (DatabaseException e) {
+			log.error(e);
 			return new ModelAndView("ExceptionPage");
 		}
 		int seatsAvailable = tripRoute.getTrip().getSeatVacancy();
@@ -268,12 +279,13 @@ public class UserController {
 					GenericService.exceptionWriter(e);
 					return new ModelAndView("ExceptionPage");
 				} catch (InputException e) {
+					log.error(e);
 					Map<String,List<TripRoute>> tripRouteModel = new HashMap<String,List<TripRoute>>();
 					List<TripRoute> tripRoutes = new ArrayList<TripRoute>();
 					try {
 						tripRoutes.add(tripRouteService.getTripRouteById(tripRoute.getId()));
-					} catch (DatabaseException e1) {
-						GenericService.exceptionWriter(e);
+					} catch (DatabaseException ex) {
+						log.error(ex);
 						return new ModelAndView("ExceptionPage");
 					}
 					tripRouteModel.put("tripRoute", tripRoutes );

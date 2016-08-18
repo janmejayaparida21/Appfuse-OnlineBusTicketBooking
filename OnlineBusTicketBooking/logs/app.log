@@ -1,0 +1,50 @@
+2016-08-18 15:22:49,329 DEBUG c.i.w.l.StartupListener [main] Initializing context...
+2016-08-18 15:22:49,339 DEBUG c.i.w.l.StartupListener [main] Remember Me Enabled? true
+2016-08-18 15:22:49,339 DEBUG c.i.w.l.StartupListener [main] Password Encoder: BCryptPasswordEncoder
+2016-08-18 15:22:49,339 DEBUG c.i.w.l.StartupListener [main] Populating drop-downs...
+2016-08-18 15:22:49,384 DEBUG c.i.d.h.LookupDaoHibernate [main] Retrieving all role names...
+2016-08-18 15:22:49,423 DEBUG c.i.w.l.StartupListener [main] Drop-down initialization complete [OK]
+2016-08-18 15:22:49,617 DEBUG c.i.w.l.StartupListener [main] Full text search reindexing complete [OK]
+2016-08-18 15:22:49,639 WARN c.i.w.l.StartupListener [main] META-INF/MANIFEST.MF not found.
+2016-08-18 15:22:49,639 INFO c.i.w.l.StartupListener [main] Application version set to: 76585
+2016-08-18 15:22:49,767 INFO o.d.f.ResponseOverrideFilter [main] Filter initialized. Response buffering is enabled
+2016-08-18 15:22:49,768 DEBUG c.i.w.f.LocaleFilter [main] Initializing filter 'localeFilter'
+2016-08-18 15:22:49,768 DEBUG c.i.w.f.LocaleFilter [main] Filter 'localeFilter' configured successfully
+2016-08-18 15:22:49,930 INFO r.i.w.h.WroFilter [main] wro4j version: 1.7.5
+2016-08-18 15:22:49,945 INFO r.i.w.h.WroFilter [main] wro4j configuration: ro.isdc.wro.config.jmx.WroConfiguration@54dcf244[
+  cacheUpdatePeriod=0
+  modelUpdatePeriod=0
+  resourceWatcherUpdatePeriod=0
+  resourceWatcherAsync=false
+  gzipEnabled=false
+  debug=false
+  ignoreMissingResources=false
+  disableCache=false
+  cacheGzippedContent=false
+  jmxEnabled=true
+  wroManagerClassName=ro.isdc.wro.manager.factory.ConfigurableWroManagerFactory
+  encoding=UTF-8
+  mbeanName=<null>
+  header=<null>
+  connectionTimeout=2000
+  parallelPreprocessing=false
+  ignoreEmptyGroup=true
+  ignoreFailingProcessor=false
+  minimizeEnabled=true
+]
+2016-08-18 15:23:04,676 WARN o.s.w.s.PageNotFound [qtp1323887236-17] No mapping found for HTTP request with URI [/app/OnlineBusTicketBooking/Search.html] in DispatcherServlet with name 'dispatcher'
+2016-08-18 15:23:11,003 WARN o.s.w.s.PageNotFound [qtp1323887236-14] No mapping found for HTTP request with URI [/app/OnlineBusTicketBooking/] in DispatcherServlet with name 'dispatcher'
+2016-08-18 15:23:32,777 WARN o.s.w.s.PageNotFound [qtp1323887236-17] No mapping found for HTTP request with URI [/app/OnlineBusTicketBooking/] in DispatcherServlet with name 'dispatcher'
+2016-08-18 15:23:43,168 WARN o.s.w.s.PageNotFound [qtp1323887236-13] No mapping found for HTTP request with URI [/app/fonts/glyphicons-halflings-regular.woff2] in DispatcherServlet with name 'dispatcher'
+2016-08-18 15:23:43,172 WARN o.s.w.s.PageNotFound [qtp1323887236-35] No mapping found for HTTP request with URI [/app/fonts/fontawesome-webfont.woff2] in DispatcherServlet with name 'dispatcher'
+2016-08-18 15:23:43,197 WARN o.s.w.s.PageNotFound [qtp1323887236-14] No mapping found for HTTP request with URI [/app/fonts/fontawesome-webfont.woff] in DispatcherServlet with name 'dispatcher'
+2016-08-18 15:23:43,199 WARN o.s.w.s.PageNotFound [qtp1323887236-17] No mapping found for HTTP request with URI [/app/fonts/glyphicons-halflings-regular.woff] in DispatcherServlet with name 'dispatcher'
+2016-08-18 15:23:43,220 WARN o.s.w.s.PageNotFound [qtp1323887236-35] No mapping found for HTTP request with URI [/app/fonts/fontawesome-webfont.ttf] in DispatcherServlet with name 'dispatcher'
+2016-08-18 15:23:43,220 WARN o.s.w.s.PageNotFound [qtp1323887236-13] No mapping found for HTTP request with URI [/app/fonts/glyphicons-halflings-regular.ttf] in DispatcherServlet with name 'dispatcher'
+2016-08-18 15:23:57,877 WARN o.s.w.s.PageNotFound [qtp1323887236-14] No mapping found for HTTP request with URI [/app/vendor/font-awesome/css/font.min.css] in DispatcherServlet with name 'dispatcher'
+2016-08-18 15:23:57,887 WARN o.s.w.s.PageNotFound [qtp1323887236-17] No mapping found for HTTP request with URI [/app/vendor/bootstrap/css/bootstrap.min.css] in DispatcherServlet with name 'dispatcher'
+2016-08-18 15:24:44,732 ERROR c.i.w.c.UserController [qtp1323887236-14] com.i2i.exception.InputException: Source and Destination Should not be same.Please enter correct value
+2016-08-18 15:25:37,397 WARN o.s.w.s.PageNotFound [qtp1323887236-17] No mapping found for HTTP request with URI [/app/vendor/bootstrap/css/bootstrap.min.css] in DispatcherServlet with name 'dispatcher'
+2016-08-18 15:25:37,398 WARN o.s.w.s.PageNotFound [qtp1323887236-13] No mapping found for HTTP request with URI [/app/vendor/font-awesome/css/font.min.css] in DispatcherServlet with name 'dispatcher'
+2016-08-18 15:26:21,122 WARN o.s.w.s.PageNotFound [qtp1323887236-13] No mapping found for HTTP request with URI [/app/vendor/bootstrap/css/bootstrap.min.css] in DispatcherServlet with name 'dispatcher'
+2016-08-18 15:26:21,129 WARN o.s.w.s.PageNotFound [qtp1323887236-17] No mapping found for HTTP request with URI [/app/vendor/font-awesome/css/font.min.css] in DispatcherServlet with name 'dispatcher'

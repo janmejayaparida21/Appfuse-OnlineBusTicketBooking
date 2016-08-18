@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.i2i.util.DateUtilTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.764 sec - in com.i2i.util.DateUtilTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.597 sec - in com.i2i.util.DateUtilTest
