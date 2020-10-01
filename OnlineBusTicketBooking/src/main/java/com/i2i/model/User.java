@@ -1,5 +1,6 @@
 package com.i2i.model;
 
+import java.io.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
